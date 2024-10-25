@@ -11,3 +11,9 @@ export const getReadingTime = (text) => {
   const time = Math.ceil(words / wpm);
   return time;
 };
+
+export const sortBlogsByPublishedDates = (blogs) => {
+  return blogs.sort(
+    (a, b) => new Date(b.publishedDate) - new Date(a.publishedDate)
+  );
+};
