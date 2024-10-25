@@ -3,7 +3,7 @@ import BlogPreview from "./BlogPreview";
 
 const BlogPreviews = () => {
   return (
-    <div className="w-1/2 mx-auto flex flex-col space-y-6 pb-5">
+    <div className="w-4/5 md:w-1/2 mx-auto flex flex-col space-y-6 pb-5">
       {blogs
         .sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate))
         .map((blog) => (

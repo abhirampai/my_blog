@@ -29,7 +29,7 @@ const Header = () => {
           </Link>
         </p>
       </div>
-      <Separator className="my-4 w-1/2 mx-auto" />
+      <Separator className="my-4 w-4/5 md:w-1/2 mx-auto" />
     </div>
   );
 };
