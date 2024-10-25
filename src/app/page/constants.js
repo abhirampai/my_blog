@@ -20,4 +20,11 @@ export const blogs = [
       "During my exploration with ruby on rails, I stumbled upon rails engine and how we can use it to encapsulate or make a ruby on rails application modular by splitting some functionality into smaller manageable sizes. So to learn more about rails engine I started off with creating a mountable rails engine...",
     slug: "using_stimulus_with_rails_engine",
   },
+  {
+    name: "Integration swagger with rails and stimulus",
+    publishedDate: "Oct 25, 2024",
+    summary:
+      "Swagger is an api documentation UI that helps users that don’t require access to the application directly but require access to only apis can use. In many of the frameworks for example fastapi has swagger capabilities in build in it...",
+    slug: "integrating_swagger_with_rails_and_stimulus"
+  }
 ];
