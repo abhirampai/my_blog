@@ -19,6 +19,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
         <Badge variant="outline">{readingTimeText} read</Badge>
         <div className="pb-4 w-full">
           <MDEditor.Markdown
+            style={{ backgroundColor: "transparent" }}
             source={blogContent}
             previewOptions={{
               rehypePlugins: [[rehypeSanitize]],
