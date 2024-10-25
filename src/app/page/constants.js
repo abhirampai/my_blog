@@ -21,7 +21,7 @@ export const blogs = [
     slug: "using_stimulus_with_rails_engine",
   },
   {
-    name: "Integration swagger with rails and stimulus",
+    name: "Integrating swagger with rails and stimulus",
     publishedDate: "Oct 25, 2024",
     summary:
       "Swagger is an api documentation UI that helps users that don’t require access to the application directly but require access to only apis can use. In many of the frameworks for example fastapi has swagger capabilities in build in it...",
