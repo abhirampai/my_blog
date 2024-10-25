@@ -139,7 +139,7 @@ Finally this endpoint would return the swagger.json output.
 
 The drawback of using this gem is it is not maintained anymore and supports till 3.0 openapi version.
 
-To know more about swagger-blocks -> https://github.com/fotinakis/swagger-blocks
+Click -> [swagger-blocks](https://github.com/fotinakis/swagger-blocks), to know more.
 
 ### Rswag
 Rswag extends rspec-rails "request specs" with a Swagger-based DSL for describing and testing API operations. You describe your API operations with a succinct, intuitive syntax, and it automatically runs the tests. Once you have green tests, run a rake task to auto-generate corresponding Swagger files and expose them as YAML or JSON endpoints.
@@ -197,12 +197,10 @@ mount Rswag::Api::Engine => 'your-custom-prefix'
 
 One of the disadvantage of this gem is that we have to handle the creation of component schema by directly editing swagger_helper file wheras the swagger-blocks added it when defining the swagger-blocks for the model.
 
-To know more on rswag -> https://github.com/rswag/rswag
+Click -> [rswag](https://github.com/rswag/rswag) to know more.
 
 ### Swagger UI
-Now that we have the swagger file we need to show it in the ui and swagger ui is the package that we are focusing in this blog.
-
-https://github.com/swagger-api/swagger-ui
+Now that we have the swagger file we need to show it in the ui and [swagger ui](https://github.com/swagger-api/swagger-ui) is the package that we are focusing in this blog.
 
 ```
 yarn add swagger-ui
