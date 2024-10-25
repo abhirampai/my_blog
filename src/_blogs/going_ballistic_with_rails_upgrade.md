@@ -1,28 +1,3 @@
-
-> medium-to-markdown@0.0.3 convert
-> node index.js https://medium.com/@abhirampai/going-ballistic-with-rails-upgrade-75bce23af84e
-
-Going ballistic with Rails upgrade
-==================================
-
-[![Abhiram R Pai](https://miro.medium.com/v2/resize:fill:88:88/1*noNoraQlXqVek4YuiU50ww.jpeg)
-
-](https://medium.com/?source=post_page-----75bce23af84e--------------------------------)
-
-[Abhiram R Pai](https://medium.com/?source=post_page-----75bce23af84e--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2Fa8ddc8e58b9c&operation=register&redirect=https%3A%2F%2Fabhirampai.medium.com%2Fgoing-ballistic-with-rails-upgrade-75bce23af84e&user=Abhiram+R+Pai&userId=a8ddc8e58b9c&source=post_page-a8ddc8e58b9c----75bce23af84e---------------------post_header-----------)
-
-2 min read·May 24, 2024
-
-\--
-
-Listen
-
-Share
-
 The journey of moving from Rails 4.2 to Rails 5 was nothing short of a rollercoaster ride. This blog is all about what were the steps taken in order to achieve the changes faster and effectively so that you won’t have to face the challenges in future rails upgrades.
 
 **Always have a better code coverage ( > 85% atleast )**

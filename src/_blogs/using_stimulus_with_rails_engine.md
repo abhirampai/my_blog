@@ -1,28 +1,3 @@
-
-> medium-to-markdown@0.0.3 convert
-> node index.js https://medium.com/geekculture/using-stimulus-with-rails-engine-93310d038079
-
-Using stimulus with rails engine
-================================
-
-[![Abhiram R Pai](https://miro.medium.com/v2/resize:fill:88:88/1*noNoraQlXqVek4YuiU50ww.jpeg)
-
-](https://medium.com/?source=post_page-----93310d038079--------------------------------)
-
-[Abhiram R Pai](https://medium.com/?source=post_page-----93310d038079--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2Fa8ddc8e58b9c&operation=register&redirect=https%3A%2F%2Fabhirampai.medium.com%2Fusing-stimulus-with-rails-engine-93310d038079&user=Abhiram+R+Pai&userId=a8ddc8e58b9c&source=post_page-a8ddc8e58b9c----93310d038079---------------------post_header-----------)
-
-2 min read·Nov 3, 2023
-
-\--
-
-Listen
-
-Share
-
 During my exploration with ruby on rails, I stumbled upon rails engine and how we can use it to encapsulate or make a ruby on rails application modular by splitting some functionality into smaller manageable sizes. So to learn more about rails engine I started off with creating a mountable rails engine.
 
 ```
