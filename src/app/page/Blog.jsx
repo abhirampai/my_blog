@@ -3,6 +3,7 @@
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
 import Header from "./Header";
+import { Badge } from "@/components/ui/badge";
 
 const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
   return (
@@ -12,12 +13,10 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-thin">
           {publishedDate}
         </p>
-        <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-thin">
-          {readingTimeText} read
-        </p>
         <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0">
           {name}
         </h2>
+        <Badge variant="outline">{readingTimeText} read</Badge>
         <div className="pb-4 w-full">
           <MDEditor.Markdown
             source={blogContent}
