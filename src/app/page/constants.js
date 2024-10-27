@@ -26,5 +26,12 @@ export const blogs = [
     summary:
       "Swagger is an api documentation UI that helps users that don’t require access to the application directly but require access to only apis can use. In many of the frameworks for example fastapi has swagger capabilities in build in it...",
     slug: "integrating_swagger_with_rails_and_stimulus"
+  },
+  {
+    name: "Integrating scalar with stimulus",
+    publishedDate: "Oct 27, 2024",
+    summary:
+      "In the previous blog we saw how we can generate swagger.yaml and use it with swagger ui package. In this blog we will be looking into integrating the same swagger.yaml with Scalar. Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc...",
+    slug: "integrating_scalar_with_stimulus"
   }
 ];
