@@ -1,5 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import Link from "next/link";
 
@@ -29,7 +28,6 @@ const Header = () => {
           </Link>
         </p>
       </div>
-      <Separator className="my-4 w-4/5 md:w-1/2 mx-auto" />
     </div>
   );
 };

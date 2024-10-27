@@ -2,14 +2,12 @@
 
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
-import Header from "./Header";
 import { Badge } from "@/components/ui/badge";
 
 const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
   return (
     <>
-      <Header />
-      <div className="w-4/5 md:w-1/2 mx-auto flex flex-col space-y-4 items-center">
+      <div className="flex flex-col space-y-4 items-center">
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-thin">
           {publishedDate}
         </p>
