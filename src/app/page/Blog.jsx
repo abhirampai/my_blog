@@ -3,6 +3,7 @@
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
   return (
@@ -21,6 +22,16 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
             source={blogContent}
             previewOptions={{
               rehypePlugins: [[rehypeSanitize]],
+              components: {
+                img: ({src, alt}) => (
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={500}
+                    height={500}
+                  />
+                ),
+              },
             }}
           />
         </div>
