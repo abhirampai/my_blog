@@ -1,5 +1,5 @@
 In the previous blog [Integrating swagger with rails](/integrating_swagger_with_rails) we saw how we can generate swagger.yaml and use it with swagger ui package.
-In this blog we will be looking into integrating the same swagger.yaml with Scalar. Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc.
+In this blog we will be looking into integrating the same swagger.yaml with [Scalar](https://github.com/scalar/scalar). Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc.
 
 <img width="1129" alt="A create user api documentation" src="https://github.com/user-attachments/assets/e6f76181-74c9-402c-a61a-c74e20c4cfdc">
 
