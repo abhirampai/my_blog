@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/command";
 import { blogs } from "@/app/page/constants";
 import Link from "next/link";
+import { FileIcon } from "@radix-ui/react-icons";
 
 export const SearchBar = ({ open, setOpen }) => {
   useEffect(() => {
@@ -32,7 +33,12 @@ export const SearchBar = ({ open, setOpen }) => {
         <CommandGroup heading="Blogs">
           {blogs.map((blog) => (
             <CommandItem key={blog.name}>
-              <Link href={`/${blog.slug}`}>{blog.name}</Link>
+              <Link href={`/${blog.slug}`}>
+                <div className="flex items-center gap-2">
+                  <FileIcon />
+                  <span>{blog.name}</span>
+                </div>
+              </Link>
             </CommandItem>
           ))}
         </CommandGroup>
