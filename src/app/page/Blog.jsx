@@ -21,6 +21,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
         <Badge variant="outline">{readingTimeText} read</Badge>
         <div className="pb-4 w-full">
           <MarkdownPreview
+            className="dark:text-white"
             style={{ backgroundColor: "transparent" }}
             source={blogContent}
             rehypePlugins={[
