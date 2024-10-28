@@ -35,3 +35,5 @@ export const blogs = [
     slug: "integrating_scalar_with_stimulus"
   }
 ];
+
+export const IMAGE_BLUR_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMi3OuBwADoQGA02afmgAAAABJRU5ErkJggg=="
