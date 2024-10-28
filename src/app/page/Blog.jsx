@@ -51,7 +51,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
               },
               img: ({ src, alt, title }) => {
                 return (
-                  <span className="flex flex-col items-center p-2 border">
+                  <span className="flex flex-col items-center p-2 dark:bg-stone-700 bg-gray-900">
                     <Image
                       src={src}
                       alt={alt}
@@ -62,7 +62,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                       placeholder="blur"
                       blurDataURL={IMAGE_BLUR_DATA_URL}
                     />
-                    <span className="text-center text-sm text-muted-foreground">
+                    <span className="text-center text-sm text-white">
                       {alt}
                     </span>
                   </span>
