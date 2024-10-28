@@ -30,6 +30,13 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
               remarkDirective,
             ]}
             components={{
+              code: ({ children }) => {
+                return (
+                  <code className="text-sm !bg-gray-900 rounded-lg dark:!bg-gray-100 dark:text-black text-white">
+                    {children}
+                  </code>
+                );
+              },
               img: ({ src, alt, title }) => {
                 return (
                   <span className="flex flex-col items-center p-2 border">
@@ -43,7 +50,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                       placeholder="blur"
                       blurDataURL={IMAGE_BLUR_DATA_URL}
                     />
-                    <span className="text-center text-sm text-muted-foreground dark:text-muted">
+                    <span className="text-center text-sm text-muted-foreground">
                       {alt}
                     </span>
                   </span>
