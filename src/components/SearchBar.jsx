@@ -12,6 +12,7 @@ import {
 import { blogs } from "@/app/page/constants";
 import Link from "next/link";
 import { FileIcon } from "@radix-ui/react-icons";
+import { sortBlogsByPublishedDates } from "@/lib/utils";
 
 export const SearchBar = ({ open, setOpen }) => {
   useEffect(() => {
@@ -31,7 +32,7 @@ export const SearchBar = ({ open, setOpen }) => {
       <CommandList onClick={() => setOpen(false)}>
         <CommandEmpty>No blogs found.</CommandEmpty>
         <CommandGroup heading="Blogs">
-          {blogs.map((blog) => (
+          {sortBlogsByPublishedDates(blogs).map((blog) => (
             <CommandItem key={blog.name}>
               <Link href={`/${blog.slug}`}>
                 <div className="flex items-center gap-2">
