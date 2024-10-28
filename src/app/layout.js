@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           </nav>
           <div className="w-4/5 md:w-1/2 mx-auto flex flex-col [&:not(:first-child)]:space-y-6 pb-5">
             <Header />
-            <Separator className="my-4 mx-auto" />
+            <Separator className="my-4 mx-auto dark:bg-white" />
             {children}
           </div>
         </ThemeProvider>
