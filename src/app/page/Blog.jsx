@@ -1,9 +1,12 @@
 "use client";
 
-import MDEditor from "@uiw/react-md-editor";
+import MarkdownPreview from "@uiw/react-markdown-preview";
 import rehypeSanitize from "rehype-sanitize";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import remarkDirectiveRehype from "remark-directive-rehype";
+import remarkDirective from "remark-directive";
+import { IMAGE_BLUR_DATA_URL } from "./constants";
 
 const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
   return (
@@ -17,20 +20,33 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
         </h2>
         <Badge variant="outline">{readingTimeText} read</Badge>
         <div className="pb-4 w-full">
-          <MDEditor.Markdown
+          <MarkdownPreview
             style={{ backgroundColor: "transparent" }}
             source={blogContent}
-            previewOptions={{
-              rehypePlugins: [[rehypeSanitize]],
-              components: {
-                img: ({src, alt}) => (
-                  <Image
-                    src={src}
-                    alt={alt}
-                    width={500}
-                    height={500}
-                  />
-                ),
+            rehypePlugins={[
+              rehypeSanitize,
+              remarkDirectiveRehype,
+              remarkDirective,
+            ]}
+            components={{
+              img: ({ src, alt, title }) => {
+                return (
+                  <span className="flex flex-col items-center p-2 border">
+                    <Image
+                      src={src}
+                      alt={alt}
+                      title={title}
+                      width={500}
+                      height={250}
+                      className="w-full h-full"
+                      placeholder="blur"
+                      blurDataURL={IMAGE_BLUR_DATA_URL}
+                    />
+                    <span className="text-center text-sm text-muted-foreground dark:text-muted">
+                      {alt}
+                    </span>
+                  </span>
+                );
               },
             }}
           />

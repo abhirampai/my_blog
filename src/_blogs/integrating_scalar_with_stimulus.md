@@ -1,20 +1,17 @@
 In the previous blog [Integrating swagger with rails](/integrating_swagger_with_rails) we saw how we can generate swagger.yaml and use it with swagger ui package.
 In this blog we will be looking into integrating the same swagger.yaml with [Scalar](https://github.com/scalar/scalar). Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc.
 
-![A create user api documentation](assets/create_a_user.png)
-<p style="text-align: center;">A create user api documentation</p>
+![A create user api documentation](/assets/create_a_user.png "A create user api documentation")
 
 Here as you can see we can select the client that we want to run the api on and copy paste the code that makes life easier. Now if we try to test the api end point we should see a ui similar to below.
 
-![Test create user api endpoint](assets/test_user_endpoint.png)
-<p style="text-align: center;">Test create user api endpoint</p>
+![Test create user api endpoint](/assets/test_user_endpoint.png "Test create user api endpoint")
 
 Here you can set the request headers, cookies, form body, query params and send the request and in the response you can see the headers, cookies, and body separated which makes it more readable.
 
 Now if you want to switch to another api endpoint you just need to click the sidebar on the same modal and you will get all the api endpoints there.
 
-![Sidebar endpoints](assets/sidebar_endpoints.png)
-<p style="text-align: center;">Sidebar endpoints</p>
+![Sidebar endpoints](/assets/sidebar_endpoints.png "Sidebar endpoints")
 
 Now without further adieu lets start integrating scalar with stimulus.
 
