@@ -29,12 +29,12 @@ export const SearchBar = ({ open, setOpen }) => {
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput placeholder="Type a command or search..." />
-      <CommandList onClick={() => setOpen(false)}>
+      <CommandList>
         <CommandEmpty>No blogs found.</CommandEmpty>
         <CommandGroup heading="Blogs">
           {sortBlogsByPublishedDates(blogs).map((blog) => (
             <CommandItem key={blog.name}>
-              <Link href={`/${blog.slug}`}>
+              <Link href={`/${blog.slug}`} onClick={() => setOpen(false)} className="w-full">
                 <div className="flex items-center gap-2">
                   <FileIcon />
                   <span>{blog.name}</span>
