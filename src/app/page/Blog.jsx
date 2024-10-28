@@ -7,6 +7,7 @@ import Image from "next/image";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import remarkDirective from "remark-directive";
 import { IMAGE_BLUR_DATA_URL } from "./constants";
+import Link from "next/link";
 
 const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
   return (
@@ -35,6 +36,17 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                   <code className="text-sm !bg-gray-900 rounded-lg dark:!bg-stone-700 text-white">
                     {children}
                   </code>
+                );
+              },
+              a: ({ children, href }) => {
+                return (
+                  <Link
+                    href={href}
+                    target="_blank"
+                    className="text-blue-500 hover:underline"
+                  >
+                    {children}
+                  </Link>
                 );
               },
               img: ({ src, alt, title }) => {
