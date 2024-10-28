@@ -13,7 +13,7 @@ const Header = () => {
           />
           <AvatarFallback>AP</AvatarFallback>
         </Avatar>
-        <h4 className="scroll-m-20 text-lg font-thin text-gray-600">
+        <h4 className="scroll-m-20 text-lg font-thin text-gray-700 dark:text-gray-500">
           Abhiram R Pai
         </h4>
         <p className="leading-7 font-extralight">

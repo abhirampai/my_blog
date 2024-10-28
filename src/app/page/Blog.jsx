@@ -51,7 +51,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
               },
               img: ({ src, alt, title }) => {
                 return (
-                  <span className="flex flex-col items-center p-2 dark:bg-stone-700 bg-gray-900">
+                  <span className="flex flex-col items-center p-2 shadow-sm rounded-md dark:bg-stone-700 bg-gray-900">
                     <Image
                       src={src}
                       alt={alt}
