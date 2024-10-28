@@ -5,7 +5,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <div className="w-full">
-      <div className="flex flex-col mt-10 items-center space-y-2">
+      <div className="flex flex-col items-center space-y-2">
         <Avatar className="w-16 h-16">
           <AvatarImage
             src="https://github.com/abhirampai.png"
