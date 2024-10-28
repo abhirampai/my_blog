@@ -3,7 +3,7 @@ import Link from "next/link";
 const BlogPreview = ({ publishedDate, name, summary, slug }) => {
   return (
     <Link href={`/${slug}`}>
-      <div className="border rounded-lg flex flex-col shadow-sm border-blue-200 dark:border-white space-y-3 p-5 hover:shadow-md hover:cursor-pointer items-center dark:hover:shadow-cyan-500">
+      <div className="border rounded-lg flex flex-col shadow-sm border-blue-200 dark:border-white space-y-3 p-5 hover:shadow-md hover:cursor-pointer items-center dark:hover:shadow-gray-500">
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-thin">
           {publishedDate}
         </p>
