@@ -32,7 +32,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
             components={{
               code: ({ children }) => {
                 return (
-                  <code className="text-sm !bg-gray-900 rounded-lg dark:!bg-gray-100 dark:text-black text-white">
+                  <code className="text-sm !bg-gray-900 rounded-lg dark:!bg-stone-700 text-white">
                     {children}
                   </code>
                 );
