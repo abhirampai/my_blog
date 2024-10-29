@@ -33,7 +33,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
             components={{
               code: ({ children }) => {
                 return (
-                  <code className="text-sm !bg-gray-900 rounded-lg dark:!bg-stone-700 text-white">
+                  <code className="text-sm rounded-lg !bg-gray-100 dark:!bg-stone-200 text-black">
                     {children}
                   </code>
                 );
@@ -51,7 +51,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
               },
               img: ({ src, alt, title }) => {
                 return (
-                  <span className="flex flex-col items-center p-2 space-y-2 shadow-sm rounded-md dark:bg-stone-700 bg-gray-900">
+                  <span className="flex flex-col items-center p-2 space-y-2 shadow-sm rounded-md dark:bg-stone-200 bg-gray-100">
                     <Image
                       src={src}
                       alt={alt}
@@ -62,7 +62,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                       placeholder="blur"
                       blurDataURL={IMAGE_BLUR_DATA_URL}
                     />
-                    <span className="text-center text-sm text-white">
+                    <span className="text-center text-sm text-black">
                       {alt}
                     </span>
                   </span>
