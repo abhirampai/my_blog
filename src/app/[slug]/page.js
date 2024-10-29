@@ -12,25 +12,27 @@ export async function generateStaticParams() {
   }));
 }
 
+const getBlogData = async (slug) => {
+  const blog = blogs.find((blog) => blog.slug === slug);
+  const postFilePath = join(`${process.cwd()}/src/_blogs`, `${slug}.md`);
+  const blogContent = fs.readFileSync(postFilePath, { encoding: "utf8" });
+  const readingTime = getReadingTime(blogContent);
+  const readingTimeText = pluralize(`${readingTime} min`, readingTime);
+
+  return {
+    readingTimeText,
+    publishedDate: new Date(blog.publishedDate).toLocaleDateString(),
+    name: blog.name,
+    blogContent,
+  };
+};
+
 export default async function page({ params }) {
   const { slug } = await params;
 
   if (slug) {
-    const blog = blogs.find((blog) => blog.slug === slug);
-    const postFilePath = join(`${process.cwd()}/src/_blogs`, `${slug}.md`);
-    const blogContent = fs.readFileSync(postFilePath, { encoding: "utf8" });
-    const readingTime = getReadingTime(blogContent);
-    const readingTimeText = pluralize(`${readingTime} min`, readingTime);
+    const blogData = await getBlogData(slug);
 
-    return (
-      <>
-        <Blog
-          readingTimeText={readingTimeText}
-          publishedDate={blog.publishedDate}
-          name={blog.name}
-          blogContent={blogContent}
-        />
-      </>
-    );
+    return <Blog {...blogData} />;
   }
 }

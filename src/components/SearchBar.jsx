@@ -18,9 +18,9 @@ import { useTheme } from "next-themes";
 export const SearchBar = ({ open, setOpen }) => {
   const { setTheme } = useTheme();
   const themes = {
-    light: <SunIcon />,
-    dark: <MoonIcon />,
-    system: <HomeIcon />,
+    Light: <SunIcon />,
+    Dark: <MoonIcon />,
+    System: <HomeIcon />,
   };
 
   useEffect(() => {
@@ -41,7 +41,12 @@ export const SearchBar = ({ open, setOpen }) => {
         <CommandEmpty>No blogs found.</CommandEmpty>
         <CommandGroup heading="Blogs">
           {sortBlogsByPublishedDates(blogs).map((blog) => (
-            <CommandItem key={blog.name}>
+            <CommandItem
+              key={blog.name}
+              onSelect={(e) => {
+                console.log(e);
+              }}
+            >
               <Link
                 href={`/${blog.slug}`}
                 onClick={() => setOpen(false)}
@@ -61,7 +66,7 @@ export const SearchBar = ({ open, setOpen }) => {
               <div
                 className="flex items-center gap-2 w-full cursor-pointer"
                 onClick={() => {
-                  setTheme(theme);
+                  setTheme(theme.toLowerCase());
                   setOpen(false);
                 }}
               >
