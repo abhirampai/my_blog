@@ -1,8 +1,8 @@
-When I built [CodeBoost](https://github.com/abhirampai/CodeBoost), I had added ChatGPT support to it for refactoring the code. But as time passed the api key expired and I was checking for other options. Then I came across [WebLlm](https://github.com/mlc-ai/web-llm) that runs llm on browser.
+When I built [CodeBoost](https://github.com/abhirampai/CodeBoost), I had added ChatGPT support to it for refactoring the code. But as time passed the api key expired and I was checking for other options. Then I came across [WebLlm](https://github.com/mlc-ai/web-llm) that runs models in browser.
 
 WebLlm is a high performance in-browser LLM inference engine that brings language model inference directly onto web browsers with hardware acceleration. Everything runs inside the browser with no server support and is accelerated with WebGPU.
 
-It downloads models into the cache of your browser and runs it with the help of WebGPU, so make sure you are running a browser that supports WebGPU.
+It downloads models into the cache of your browser and runs it with the help of WebGPU, so make sure you are running a browser that supports [WebGPU](https://caniuse.com/?search=WebGPU).
 
 To add WebLlm to your application you can use
 
@@ -10,14 +10,14 @@ To add WebLlm to your application you can use
 yarn add @mlc-ai/web-llm
 ```
 
-You can also use cdn if you want,
+You can also use CDN if you want,
 
 ```javascript
 import * as webllm from "https://esm.run/@mlc-ai/web-llm";
 ```
 
 ### Initializing MlcEngine
-The operations that can be done on a webllm model are through `MlcEngine` interface. To create an instance of `MlcEngine` we can do the following:
+The operations that can be done on a WebLlm model are through `MlcEngine` interface. To create an instance of `MlcEngine` we can do the following:
 
 ```javascript
 // main.js
