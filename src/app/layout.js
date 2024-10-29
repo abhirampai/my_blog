@@ -8,6 +8,28 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata = {
   title: "Abhiram Pai",
   description: "Blogs by Abhiram Pai",
+  referrer: "origin-when-cross-origin",
+  keywords: ["Next.js", "React", "JavaScript"],
+  authors: [{ name: "Abhiram Pai" }],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({ children }) {
