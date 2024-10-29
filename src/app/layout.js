@@ -31,6 +31,9 @@ export const metadata = {
   },
   manifest: "/manifest.json",
   category: "blog",
+  openGraph: {
+    images: ["/assets/abhirampai.jpeg"]
+  }
 };
 
 export default function RootLayout({ children }) {

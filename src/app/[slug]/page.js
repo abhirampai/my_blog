@@ -12,15 +12,17 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
-  const { slug } = params;
+export async function generateMetadata({ params }, parent) {
+  const { slug } = await params;
   const blog = blogs.find((blog) => blog.slug === slug);
+  const previewImages = (await parent).openGraph?.images ||[]
+  
   return {
     title: blog.name,
     description: blog.summary,
     keywords: blog.keywords,
     openGraph: {
-      images: [blog.thumbnail],
+      images: [blog.thumbnail, ...previewImages],
     },
   };
 }
