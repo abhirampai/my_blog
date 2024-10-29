@@ -33,6 +33,13 @@ export const blogs = [
     summary:
       "In the previous blog we saw how we can generate swagger.yaml and use it with swagger ui package. In this blog we will be looking into integrating the same swagger.yaml with Scalar. Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc...",
     slug: "integrating_scalar_with_stimulus"
+  },
+  {
+    name: "Enhance your rails app with class-level callbacks",
+    publishedDate: "June 19, 2024",
+    summary:
+      "In this blog, we will be looking into how we can enhance our rails app with class-level callbacks. Class-level callbacks are callbacks that are defined on the class level and not on the instance level. This is a great way to add callbacks to your rails app...",
+      slug: "how_to_use_callback_directly_on_the_class"
   }
 ];
 
