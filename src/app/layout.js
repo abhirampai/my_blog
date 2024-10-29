@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { Separator } from "@/components/ui/separator";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Abhiram Pai",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
             <Separator className="my-4 mx-auto dark:bg-white" />
             {children}
           </div>
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
