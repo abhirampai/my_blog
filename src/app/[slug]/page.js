@@ -12,6 +12,21 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }, parent) {
+  const { slug } = await params;
+  const blog = blogs.find((blog) => blog.slug === slug);
+  const previewImages = (await parent).openGraph?.images ||[]
+  
+  return {
+    title: blog.name,
+    description: blog.summary,
+    keywords: blog.keywords,
+    openGraph: {
+      images: [blog.thumbnail, ...previewImages],
+    },
+  };
+}
+
 const getBlogData = async (slug) => {
   const blog = blogs.find((blog) => blog.slug === slug);
   const postFilePath = join(`${process.cwd()}/src/_blogs`, `${slug}.md`);
