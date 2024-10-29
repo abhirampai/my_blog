@@ -30,6 +30,7 @@ export const metadata = {
     },
   },
   manifest: "/manifest.json",
+  category: "blog",
 };
 
 export default function RootLayout({ children }) {
