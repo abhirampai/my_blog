@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Abhiram Pai",
@@ -32,8 +33,8 @@ export const metadata = {
   manifest: "/manifest.json",
   category: "blog",
   openGraph: {
-    images: ["/assets/abhirampai.jpeg"]
-  }
+    images: ["/assets/abhirampai.jpeg"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
             {children}
           </div>
           <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
