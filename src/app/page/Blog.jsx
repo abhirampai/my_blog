@@ -22,7 +22,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
         <Badge variant="outline">{readingTimeText} read</Badge>
         <div className="pb-4 w-full">
           <MarkdownPreview
-            className="dark:!text-white !text-black"
+            className="dark:!text-white !text-black !font-mono"
             style={{ backgroundColor: "transparent" }}
             source={blogContent}
             rehypePlugins={[
@@ -43,7 +43,8 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                   <Link
                     href={href}
                     target="_blank"
-                    className="text-blue-500 hover:underline"
+                    rel="no-referrer"
+                    aria-label={href}
                   >
                     {children}
                   </Link>
@@ -61,9 +62,10 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                       className="w-full h-full rounded-md"
                       placeholder="blur"
                       blurDataURL={IMAGE_BLUR_DATA_URL}
+                      loading="lazy"
                     />
                     <span className="text-center text-sm text-black">
-                      {alt}
+                      {title}
                     </span>
                   </span>
                 );

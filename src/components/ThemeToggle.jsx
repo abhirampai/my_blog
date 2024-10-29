@@ -11,20 +11,30 @@ export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+    setMounted(true);
+    setTheme(
+      document.documentElement.classList.contains("dark") ? "dark" : "light",
+    );
   }, [setTheme]);
 
   if (!mounted) {
     return <Skeleton className="w-6 h-6 rounded-md" />;
   }
 
-  return theme==="dark" ? (
-    <Button onClick={() => setTheme("light")} variant="ghost">
+  return theme === "dark" ? (
+    <Button
+      onClick={() => setTheme("light")}
+      variant="ghost"
+      aria-label="Dark mode"
+    >
       <MoonIcon />
     </Button>
   ) : (
-    <Button onClick={() => setTheme("dark")} variant="ghost">
+    <Button
+      onClick={() => setTheme("dark")}
+      variant="ghost"
+      aria-label="Light mode"
+    >
       <SunIcon />
     </Button>
   );

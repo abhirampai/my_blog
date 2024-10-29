@@ -18,7 +18,7 @@ const Navbar = () => {
     <>
       <Button
         variant="secondary"
-        className="flex items-center justify-between w-1/2 md:w-44 bg-muted"
+        className="flex items-center justify-between w-1/2 md:w-48 bg-muted"
         onClick={() => setOpenDialog(true)}
       >
         Search blogs...

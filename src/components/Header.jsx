@@ -1,17 +1,21 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Image from "next/image";
+import { Avatar } from "./ui/avatar";
 
 import Link from "next/link";
 
 const Header = () => {
   return (
     <div className="w-full">
-      <div className="flex flex-col items-center space-y-2">
+      <div className="flex flex-col items-center space-y-2 mt-2 lg:mt-0">
         <Avatar className="w-16 h-16">
-          <AvatarImage
-            src="https://github.com/abhirampai.png"
+          <Image
+            src="/abhirampai.jpeg"
             alt="@abhirampai"
+            width={100}
+            height={100}
+            className="h-full w-fullrounded-full"
+            priority
           />
-          <AvatarFallback>AP</AvatarFallback>
         </Avatar>
         <h4 className="scroll-m-20 text-lg font-thin text-gray-700 dark:text-gray-500">
           Abhiram R Pai
