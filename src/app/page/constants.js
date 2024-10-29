@@ -1,6 +1,6 @@
 export const blogs = [
   {
-    name: "How ChatGPT helped me to build a ruby gem",
+    name: "How ChatGPT helped me to build a Ruby gem",
     publishedDate: "Mar 22, 2024",
     summary:
       "In my free time, I wanted to learn to create something that would benefit not only my productivity but also help in my work so I decided to create a gem that can list all deprecated methods in a ruby on rails application. And that is how I approached ChatGPT to create a gem...",
@@ -14,33 +14,41 @@ export const blogs = [
     slug: "going_ballistic_with_rails_upgrade",
   },
   {
-    name: "Using stimulus with rails engine",
+    name: "Using Stimulus with Rails engine",
     publishedDate: "Nov 3, 2023",
     summary:
       "During my exploration with ruby on rails, I stumbled upon rails engine and how we can use it to encapsulate or make a ruby on rails application modular by splitting some functionality into smaller manageable sizes. So to learn more about rails engine I started off with creating a mountable rails engine...",
     slug: "using_stimulus_with_rails_engine",
   },
   {
-    name: "Integrating swagger with rails and stimulus",
+    name: "Integrating Swagger with Rails and Stimulus",
     publishedDate: "Oct 25, 2024",
     summary:
       "Swagger is an api documentation UI that helps users that don’t require access to the application directly but require access to only apis can use. In many of the frameworks for example fastapi has swagger capabilities in build in it...",
-    slug: "integrating_swagger_with_rails_and_stimulus"
+    slug: "integrating_swagger_with_rails_and_stimulus",
   },
   {
-    name: "Integrating scalar with stimulus",
+    name: "Integrating Scalar with Stimulus",
     publishedDate: "Oct 27, 2024",
     summary:
       "In the previous blog we saw how we can generate swagger.yaml and use it with swagger ui package. In this blog we will be looking into integrating the same swagger.yaml with Scalar. Scalar has a few features of which the one I liked the most is it shows how we can use the api with different clients like node.js, curl, etc...",
-    slug: "integrating_scalar_with_stimulus"
+    slug: "integrating_scalar_with_stimulus",
   },
   {
-    name: "Enhance your rails app with class-level callbacks",
+    name: "Enhance your Rails app with class-level callbacks",
     publishedDate: "June 19, 2024",
     summary:
       "In this blog, we will be looking into how we can enhance our rails app with class-level callbacks. Class-level callbacks are callbacks that are defined on the class level and not on the instance level. This is a great way to add callbacks to your rails app...",
-      slug: "how_to_use_callback_directly_on_the_class"
-  }
+    slug: "how_to_use_callback_directly_on_the_class",
+  },
+  {
+    name: "Using WebLlm to run AI models in browser",
+    publishedDate: "Oct 29, 2024",
+    summary:
+      "In this blog we will be looking into using WebLlm to run ai models in browser. WebLlm is a high performance in-browser LLM inference engine that brings language model inference directly onto web browsers with hardware acceleration...",
+    slug: "using_webllm_to_run_ai_models_in_browser",
+  },
 ];
 
-export const IMAGE_BLUR_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMi3OuBwADoQGA02afmgAAAABJRU5ErkJggg=="
+export const IMAGE_BLUR_DATA_URL =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMi3OuBwADoQGA02afmgAAAABJRU5ErkJggg==";
