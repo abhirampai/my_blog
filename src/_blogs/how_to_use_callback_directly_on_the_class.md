@@ -1,6 +1,3 @@
-Introduction
-============
-
 Last week, I worked on a feature requiring the result of an `ActiveJob` to perform some processing. The job resided within a gem, and I needed to modify the gem to call a method on the class in the host application. This situation necessitated a class-level callback, as the result had to be processed independently of any class instances.
 
 Understanding Callbacks in Rails
