@@ -21,7 +21,7 @@ const getBlogData = async (slug) => {
 
   return {
     readingTimeText,
-    publishedDate: new Date(blog.publishedDate).toLocaleDateString(),
+    publishedDate: blog.publishedDate,
     name: blog.name,
     blogContent,
   };
