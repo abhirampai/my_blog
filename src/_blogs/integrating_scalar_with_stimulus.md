@@ -26,7 +26,7 @@ In the previous blog we had a `views/swagger_ui/index.html.slim` like this:
 ```slim
 ruby:
   js_controller="swagger-ui--index"
-  #swagger-ui data-controller=js_controller
+#swagger-ui data-controller=js_controller
 ```
 
 But for scalar we can have the configuration in our html.slim file itself so `views/swagger_ui/index.html.slim` would look like:
