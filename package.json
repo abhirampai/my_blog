@@ -29,6 +29,7 @@
     "rehype-sanitize": "^6.0.0",
     "remark-directive": "^3.0.0",
     "remark-directive-rehype": "^0.4.2",
+    "rss": "^1.2.2",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
