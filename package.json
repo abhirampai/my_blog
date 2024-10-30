@@ -29,11 +29,11 @@
     "rehype-sanitize": "^6.0.0",
     "remark-directive": "^3.0.0",
     "remark-directive-rehype": "^0.4.2",
+    "rss": "^1.2.2",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/rss": "^0.0.32",
     "depcheck": "^1.4.7",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
