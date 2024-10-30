@@ -1,6 +1,7 @@
 import Rss from "rss";
 
 import { blogs } from "../page/constants";
+import { sortBlogsByPublishedDates } from "@/lib/utils";
 
 const siteUrl = process.env.SITE_URL;
 
@@ -16,7 +17,7 @@ const feedOptions = {
 
 const feed = new Rss(feedOptions);
 
-blogs.map((blog) => {
+sortBlogsByPublishedDates(blogs).map((blog) => {
   feed.item({
     title: blog.name,
     description: blog.summary,
