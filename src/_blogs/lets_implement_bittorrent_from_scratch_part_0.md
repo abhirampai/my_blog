@@ -77,7 +77,7 @@ This is fairly easier since we just have to check the type of the data and retur
 
 1. Check for the data type for the data ( lets assume data variable holds the string to be encoded ).
 ```
-case 1 -> String, goto step 2. 
+case 1 -> String, goto step 2.
 case 2 -> Integer, goto step 3.
 case 3 -> Array, goto step 4.
 case 4 -> Dictionary, goto step 5.
@@ -109,7 +109,7 @@ sort the hash/object by keys then for each of the key and value encode them and 
 return d{encoded_dict}e
 ```
 
-Phew that was lot of pseudo code for a blog I believe. So lets just keep this blog to bencoding concept, so int this blog we just saw different data types supported by the bittorrents bencode serialization format.
+Phew that was lot of pseudo code for a blog I believe. So lets just keep this blog to bencoding concept, so in this blog we just saw different data types supported by the bittorrents bencode serialization format.
 
 If you want to know more on bencode visit https://www.bittorrent.org/beps/bep_0003.html#bencoding.
 
