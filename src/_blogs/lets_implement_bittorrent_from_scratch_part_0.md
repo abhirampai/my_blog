@@ -1,6 +1,8 @@
 Most of us at some point in life might have used BitTorrent and downloaded movies, games, etc. [BitTorrent](https://www.bittorrent.com/) is a peer-to-peer file-sharing communication protocol through which users can distribute data and files in a decentralized manner.
 
-In this blog let's just look into how BitTorrent works like what is the BitTorrent protocol and also try to form a pseudocode for it. Let's look into different terminology that we might come across in this blog first.
+Before diving further into the blog let me share about [codecrafters](codecrafters.io) from where I got to implement and understand more about BitTorrent. You can checkout their BitTorrent course here https://app.codecrafters.io/courses/bittorrent.
+
+In this blog let's just look into how BitTorrent works like what is the BitTorrent protocol and also try to form a pseudocode for it. Let's look into different terminology that we might come across during the course of these blogs first.
 
 - Tracker -> Trackers are servers that assist communication between peers while sharing files
 - Peer -> Refers to the number of users that have the file and are seeding. If the torrent file has a healthy number of peers, it should result in faster and more reliable file transfer and a quality streaming experience
