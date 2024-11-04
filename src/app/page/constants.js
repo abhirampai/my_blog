@@ -86,6 +86,20 @@ export const blogs = [
     ],
     thumbnail: "/assets/thumbnails/github.webp",
   },
+  {
+    name: "Bittorrent from Scratch part-0",
+    publishedDate: "Nov 04, 2024",
+    slug: "lets_implement_bittorrent_from_scratch_part_0",
+    keywords: [
+      "Bittorrent",
+      "P2P",
+      "Networking",
+      "Torrent",
+      "File Sharing",
+      "Pseudocode",
+    ],
+    thumbnail: "/assets/thumbnails/bittorrent.jpeg",
+  },
 ];
 
 export const IMAGE_BLUR_DATA_URL =
