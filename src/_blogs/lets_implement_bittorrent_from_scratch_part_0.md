@@ -82,24 +82,24 @@ case 4 -> Dictionary, goto step 5.
 Any other types throw unsupported type exception.
 ```
 
-2. 
+2. Strings
 ```
 return {data.length}:{data}
 ```
 
-3.
+3. Integers
 ```
 return i{data}e
 ```
 
-4.
+4. Arrays
 ```
 for each item get the encoded string then store it to a string encoded_array
 
 return l{encoded_array}e
 ```
 
-5.
+5. Dictionaries
 ```
 here we need to sort the keys and then get the encoded strings for each key value pair,
 sort the hash/object by keys then for each of the key and value encode them and them join all of them as a string as encoded_dict
