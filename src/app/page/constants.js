@@ -88,6 +88,8 @@ export const blogs = [
   },
   {
     name: "Bittorrent from Scratch part-0",
+    summary:
+    "This is the first part of a series on implementing Bittorrent from scratch. In this post, we will be looking into bencoding which is how data is communicated between peers and trackers...",
     publishedDate: "Nov 04, 2024",
     slug: "lets_implement_bittorrent_from_scratch_part_0",
     keywords: [
