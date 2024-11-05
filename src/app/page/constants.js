@@ -87,7 +87,7 @@ export const blogs = [
     thumbnail: "/assets/thumbnails/github.webp",
   },
   {
-    name: "Bittorrent from Scratch part-0",
+    name: "BitTorrent from Scratch part-0",
     summary:
     "This is the first part of a series on implementing Bittorrent from scratch. In this post, we will be looking into bencoding which is how data is communicated between peers and trackers...",
     publishedDate: "Nov 04, 2024",
