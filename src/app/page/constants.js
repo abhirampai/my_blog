@@ -102,6 +102,25 @@ export const blogs = [
     ],
     thumbnail: "/assets/thumbnails/bittorrent.jpeg",
   },
+  {
+    name: "BitTorrent from Scratch part-1",
+    summary:
+      "This blog post is the second part of a series on implementing BitTorrent from scratch. It begins by explaining the structure and contents of a torrent file, also known as a metainfo file, which includes information such as the URL of the tracker and details about the files to be distributed...",
+    publishedDate: "Nov 06, 2024",
+    slug: "lets_implement_bittorrent_from_scratch_part_1",
+    keywords: [
+     "BitTorrent",
+     "torrent file",
+     "metainfo file",
+     "tracker",
+     "tracker get request",
+     "query parameters",
+     "peers, interval",
+     "pseudocode",
+     "file distribution"
+    ],
+    thumbnail: "/assets/thumbnails/bittorrent.jpeg",
+  }
 ];
 
 export const IMAGE_BLUR_DATA_URL =
