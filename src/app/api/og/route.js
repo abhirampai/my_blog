@@ -40,24 +40,26 @@ export const GET = (req) => {
             style={{
               display: "flex",
               gap: "0.5rem",
-              width: "50%",
               flexWrap: "wrap",
               fontSize: "2rem",
             }}
           >
-            {keywords.split(",").map((keyword, index) => (
-              <div
-                key={index}
-                style={{
-                  marginBottom: "1rem",
-                  border: "1px solid white",
-                  borderRadius: "0.5rem",
-                  padding: "0.5rem",
-                }}
-              >
-                {keyword}
-              </div>
-            ))}
+            {keywords
+              .split(",")
+              .slice(0, 4)
+              .map((keyword, index) => (
+                <div
+                  key={index}
+                  style={{
+                    marginBottom: "1rem",
+                    border: "1px solid white",
+                    borderRadius: "0.5rem",
+                    padding: "0.5rem",
+                  }}
+                >
+                  {keyword}
+                </div>
+              ))}
           </div>
         </div>
       </div>
