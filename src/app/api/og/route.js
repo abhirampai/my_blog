@@ -35,13 +35,14 @@ export const GET = (req) => {
             justifyContent: "center",
           }}
         >
-          <h2>{title}</h2>
+          <h2 style={{ fontSize: "5rem" }}>{title}</h2>
           <div
             style={{
               display: "flex",
               gap: "0.5rem",
               width: "50%",
               flexWrap: "wrap",
+              fontSize: "2rem",
             }}
           >
             {keywords.split(",").map((keyword, index) => (
