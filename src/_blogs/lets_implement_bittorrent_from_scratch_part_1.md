@@ -7,11 +7,11 @@ A torrent file, also known as a metainfo file, is a file that holds metadata abo
 This key contains the URL of the tracker, which are central servers that maintain information about peers participating in the torrent.
 #### Info 
 This is a dictionary having the following keys:
-    -  piece length -> This corresponds to the number of bytes each piece is divided into.
-    -  pieces -> This key contains a concatenated SHA1-hash of each piece.
-    -  name -> This suggests a name for saving the file or folder.
-    -  length -> This key represents the size of the file in bytes and is present when downloading a single file.
-    -  files -> This key is a dictionary representing a set of files and is present when downloading multiple files.
+-  piece length -> This corresponds to the number of bytes each piece is divided into.
+-  pieces -> This key contains a concatenated SHA1-hash of each piece.
+-  name -> This suggests a name for saving the file or folder.
+-  length -> This key represents the size of the file in bytes and is present when downloading a single file.
+-  files -> This key is a dictionary representing a set of files and is present when downloading multiple files.
 
 You can find more information about metainfo files in the [BitTorrent specification](https://bittorrent.org/beeps/bep_0003.html#metainfo-files)
 
