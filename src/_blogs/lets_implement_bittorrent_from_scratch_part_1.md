@@ -1,92 +1,91 @@
-In the [previous blog](/lets_implement_bittorrent_from_scratch_part_0) we saw how we can encode and decode bencoded strings which is the format used for communication between the peers and trackers in the BitTorrent protocol.
+In our [previous blog](/lets_implement_bittorrent_from_scratch_part_0) we explored how to encode and decode bencoded strings, which are essential for communication between peers and trackers in the BitTorrent protocol.
 
-In this blog we will be looking what a torrent file is and what all details it would hold.
+Today, we're going to delve into the torrent file structure and understand the information it contains.
 
-So a torrent file (or metainfo file) is nothing but a file that contains info about which all files / folders need to be distributed. The data inside of this file is in the bencoded dictionary format.
-It contains the following keys:
+A torrent file, also known as a metainfo file, is a file that holds metadata about the files or folders to be distributed. The data in this file is stored in a bencoded dictionary format and contains the following keys:
 #### Announce
-This contains the URL of the tracker (central servers that have information about the peers that share and download torrent).
+This key contains the URL of the tracker, which are central servers that maintain information about peers participating in the torrent.
 #### Info 
 This is a dictionary having the following keys:
-    -  piece length -> corresponds to the number of bytes each piece is split into.
-    -  pieces -> It is a concatenated SHA1-hashes of each piece.
-    -  name -> Suggested name for saving the file / folder.
-    -  length -> It is the size of file in bytes, this key would be present if we are downloading a single file.
-    -  files -> It's a dictionary that represents a set of file would be present if we are downloading multiple files.
+    -  piece length -> This corresponds to the number of bytes each piece is divided into.
+    -  pieces -> This key contains a concatenated SHA1-hash of each piece.
+    -  name -> This suggests a name for saving the file or folder.
+    -  length -> This key represents the size of the file in bytes and is present when downloading a single file.
+    -  files -> This key is a dictionary representing a set of files and is present when downloading multiple files.
 
- To know more about metainfo file you can refer https://bittorrent.org/beeps/bep_0003.html#metainfo-files
+You can find more information about metainfo files in the [BitTorrent specification](https://bittorrent.org/beeps/bep_0003.html#metainfo-files)
 
 ### Parsing torrent file keys
- Lets now see the pseudo code to decode the information from torrent file:
+ Now, let's look at a pseudo-code example to decode information from a torrent file:
 
- 1. Open the file and get the contents.
- 2. Decode the contents using the decode method we saw in the [first blog](lets_implement_bittorrent_from_scratch_part_0). Store the decoded info in a decoded_file variable.
- 3. We should now have the Announce and Info keys in the decoded file variable.
+ 1. Open the file and retrieve its contents.
+ 2. Decode the contents using the decode method discussed in our [first blog](lets_implement_bittorrent_from_scratch_part_0). and store the decoded information in a `decoded_file` variable.
+ 3. The `decoded_file` variable should now contain the Announce and Info keys.
 
-### Using the tracker to get the peers
+### Interacting with the Tracker to Get Peers
 
-Now lets look into how to make a tracker get request to get the peers.
+Next, we'll discuss how to make a GET request to a tracker to obtain a list of peers.
 
 #### Tracker request
-Before that lets look into what all keys are needed to make the request.
-##### info hash
-Info hash is a 20byte sha1 hash of the bencoded form of the info value from the metainfo file.
+First, let's examine the necessary keys for making this request.
+
+##### info_hash
+The info hash is a 20-byte SHA1 hash of the bencoded form of the info value from the metainfo file.
 ```ruby
-bencoded_info = encode(decoded_file[info]) // refer to encode method we saw in the first blog
+bencoded_info = encode(decoded_file[info]) # Refer to the encode method in the first blog
 Digest::SHA1.digest(bencoded_info)
 ```
 
 ##### peer_id
-Its a string of length 20 which the downloader uses as its id. It is randomly generated.
+This is a randomly generated 20-character string that the downloader uses as its unique identifier.
 ```ruby
 SecureRandom.alphanumeric(20)
 ```
 
 ##### port
-The port number corresponds to the port this peer is listening on.
+This is the port number on which this peer is listening.
 
 ##### uploaded
-Total amount uploaded so far.
+This key represents the total amount of data uploaded so far.
 
 ##### downloaded
-Total amount downloaded so far.
+This key represents the total amount of data downloaded so far.
 
 ##### left
-Number of bytes left to fownload.
+This key indicates the number of bytes left to download.
 
 ##### compact
-Whether the peer list should use [compact representation](bittorrent.org/beeps/bep_0023.html).
+This boolean value specifies whether the peer list should use a [compact representation](bittorrent.org/beeps/bep_0023.html).
+For more information about these query parameters, please refer to the [BitTorrent specification](https://bittorrent.org/beeps/bep_0003.html#trackers).
 
-To know more about the query params refer https://bittorrent.org/beeps/bep_0003.html#trackers
-
-Now lets look into the response we would be receiving:
+Now, let's discuss the response we can expect from the tracker.
 
 #### Tracker response
-The response to the tracker get request would be having the following keys in the bencoded dictionary format:
+The tracker's response to our GET request contains the following keys in a bencoded dictionary format:
+
 ##### interval
-An integer indicating how often the client should be making a request to the tracker.
+An integer indicating how often the client should make requests to the tracker.
 
 ##### peers
-It's a string containing the list of peers that the client can connect to.
-Each peer is 6 bytes in length. First 4 bytes corresponds to the `peer_ip_address` & the next 2 bytes corresponds to the `peer port number`
+A string containing a list of peers the client can connect to. Each peer is represented by 6 bytes, with the first 4 bytes for the `peer_ip_address` and the next 2 bytes for the `peer_port_number`.
 
-Now lets look into the pseudo code for making tracker get request & parsing the response
+Now, let's examine the pseudo-code for making a tracker GET request and parsing the response:
 
-1. Follow the pseudocode above to decode the file contents.
-2. Get the 20byte sha1 info hash.
-3. Set the query params to be sent for the get request
+1. Follow the pseudo-code above to decode the file contents.
+2. Generate the 20-byte sha1 info hash.
+3. Set the query parameters for the GET request.
 ```ruby
 query = {
   info_hash: Digest::SHA1.digest(encode(decoded_file['info'])),
   peer_id: SecureRandom.alphanumeric(2),
   port: 6881,
-  uploaded: 0, // setting uploaded and downloaded to 0 since we have not uploaded or downloaded anything
+  uploaded: 0, # We set uploaded and downloaded to 0 since we haven't uploaded or downloaded anything yet
   downloaded: 0,
-  left: decoded_file['length'], // setting left to the length of file since we have not downloaded anything
-  compact: 1 // to use the compact representation
+  left: decoded_file['length'], # We set 'left' to the file length since we haven't downloaded anything yet
+  compact: 1 # To use the compact representation
 }
 ```
-4. Send the get request to the url in the announce key of the decoded_file.
+4. Send the GET request to the URL in the 'announce' key of the `decoded_file`.
 ```ruby
 ### Sample implementation using ruby
 uri = URI(decoded_file[announce])
@@ -94,35 +93,35 @@ uri.query = URI.encode_www_form(query)
 response = Net::HTTP.get(uri)
 ```
 
-5. Now lets decode the response.
+5. Decode the response.
 ```ruby
 ### Sample implementation using ruby
-decoded_response = decode(response) // refer to the decode we discussed in the first blog.
+decoded_response = decode(response) # Refer to the decode method discussed in the first blog
 ```
 
-6. Now lets get the interval and peers
+6. Retrieve the interval and peers.
 ```ruby
 interval = decoded_response['interval']
 peers = decoded_response['peers']
 ```
-7. Now lets convert the peers to the format <peer_ip_address>:<peer_port>
+7. Convert the peers to the format `<peer_ip_address>:<peer_port>`.
 ```ruby
-peers.scan(/.{6}/).map do |peer| // scan will chop the string into chunks of given length, here it is 6
-  peer_ip_address = peer[0..3].unpack("C*").join(".") // Using unpack to convert the string which in hex form to decimal form (8 bit unsigned) * represents the number of elements can be any we could also use 4 here since we know peer address is 4 bytes in length.
-  peer_port = peer[4..5].unpack1("n") // Convert hex to decimal
-  "#{peer_ip}:#{peer_port}" // returning the string in the format <peer_ip>:<peer_port>
+peers.scan(/.{6}/).map do |peer| # Scan chops the string into 6-byte chunks
+  peer_ip_address = peer[0..3].unpack("C*").join(".") # Convert hex to decimal
+  peer_port = peer[4..5].unpack1("n") # Convert hex to decimal
+  "#{peer_ip}:#{peer_port}" # Return the string in the format <peer_ip>:<peer_port>
 end
 ```
 
 Now we have the peers to which we can connect and download files.
 
 ### Conclusion
-In this blog we saw 
-- What is a torrent file and what are contents inside of it.
-- How we can generate info_hash
-- How we can make a tracker get request.
-- How to decode the tracker get request response and also format the peer_ip_address & peer_port.
+In this blog, we've covered:
+- The structure and contents of a torrent file.
+- How to generate an info hash.
+- How to make a tracker GET request.
+- How to decode the tracker GET request response and parse `peer_ip_address` & `peer_port`.
 
-You can find a sample implementation of finding peers using ruby [here](https://github.com/abhirampai/codecrafters-bittorrent-ruby/blob/master/app/bit_torrent_client.rb#L36).
+For a sample implementation of finding peers using Ruby, you can refer to this [Github Repository](https://github.com/abhirampai/codecrafters-bittorrent-ruby/blob/master/app/bit_torrent_client.rb#L36).
 
-We will look into peer handshaking and downloading piece in the next blog.
+In our next blog, we'll discuss peer handshaking and downloading pieces.
