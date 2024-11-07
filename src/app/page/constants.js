@@ -111,6 +111,19 @@ export const blogs = [
       "file distribution",
     ],
   },
+  {
+    name: "BitTorrent from Scratch part-2",
+    summary:
+    "This blog post is the third part of the series on implementing BitTorrent from scratch.It discusses about establishing tcp connection with a peer and exchanging handshake messages and finally validating the handshake message using the info hash..."
+    slug: "lets_implement_bittorrent_from_scratch_part_2",
+    keywords: [
+      "BitTorrent",
+      "Peer",
+      "TcpConnection",
+      "Handshake",
+      "Handshake validation",
+    ]
+  }
 ];
 
 export const IMAGE_BLUR_DATA_URL =
