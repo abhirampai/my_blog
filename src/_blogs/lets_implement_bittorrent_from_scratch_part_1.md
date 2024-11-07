@@ -77,7 +77,7 @@ Now, let's examine the pseudo-code for making a tracker GET request and parsing 
 ```ruby
 query = {
   info_hash: Digest::SHA1.digest(encode(decoded_file['info'])),
-  peer_id: SecureRandom.alphanumeric(2),
+  peer_id: SecureRandom.alphanumeric(20),
   port: 6881,
   uploaded: 0, # We set uploaded and downloaded to 0 since we haven't uploaded or downloaded anything yet
   downloaded: 0,
@@ -124,4 +124,4 @@ In this blog, we've covered:
 
 For a sample implementation of finding peers using Ruby, you can refer to this [Github Repository](https://github.com/abhirampai/codecrafters-bittorrent-ruby/blob/master/app/bit_torrent_client.rb#L36).
 
-In our next blog, we'll discuss peer handshaking and downloading pieces.
+In our next blog, we'll discuss peer handshaking.
