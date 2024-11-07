@@ -1,26 +1,26 @@
-In our [previous blog](/lets_implement_bittorrent_from_scratch_part_1), we learnt more about the structure and contents of the torrent file, how to generate the info hash, how to send a get request to the tracker url inorder to get the peers.
+In our [previous blog](/lets_implement_bittorrent_from_scratch_part_1), we delved into the structure and contents of the torrent file, learned how to generate the info hash, and how to send a GET request to the tracker URL to obtain the peers.
 
-In this blog we would be diving into the details of how to establish a tcp connection with the peer and complete a handshake.
+In this blog, we will delve deeper into the process of establishing a TCP connection with a peer and completing a handshake.
 
-Now lets look into how we can make a tcp request to the peer.
+### Making a TCP Request to the Peer
 
-In the previous blog we saw how we can get the peer's address and port, we would be establishing a tcp connection with any one of the peer from that.
+In the previous blog, we discussed how to obtain the peer's address and port. We will establish a TCP connection with one of these peers.
 
-Now lets look into the handshake message.
+#### Understanding the Handshake Message
 
-A handshake message consists of the following keys:
+A handshake message comprises the following components:
 
-- Length of the protocol string which is "BitTorrent protocol" which is 19. ( 1byte )
-- The string BitTorrent protocol ( 19 bytes )
-- Eigth reserved bytes which are all zeros ( 8 bytes )
-- Sha1 hash ( 20 bytes )
-- peer_id (20 bytes)
+- The length of the protocol string, which is "BitTorrent protocol" and is 19 bytes long (1 byte)
+- The string "BitTorrent protocol" (19 bytes)
+- Eight reserved bytes, all of which are zeros (8 bytes)
+- The SHA1 hash (20 bytes)
+- The peer ID (20 bytes)
 
-Total length of a handshake_message is 68 bytes.
+The total length of a handshake message is 68 bytes.
 
-Once we send a handshake we would receive a symmetric handshake message back. To validate the handshake we have to validate the info hashes. To know more about the same refer the [BitTorrent specification](https://www.bittorrent.org/beps/bep_0003.html#peer-protocol).
+Upon sending a handshake, we receive a symmetric handshake message in return. To validate the handshake, we must validate the info hashes. For more information, refer to the [BitTorrent specification](https://www.bittorrent.org/beps/bep_0003.html#peer-protocol).
 
-Now lets write the psuedocode for the same.
+#### Pseudocode for the Process
 
 1. Get the peers by sending the get request to the tracker. Refer previous blog to see how this is done.
 2. Now establish a tcp connection with any one of the peer.
@@ -53,6 +53,6 @@ end
 
 In this blog we saw how we can establish a tcp connection with a peer, send a handshake message and validate the handshake message send back by the peer.
 
-For a sample implementation of tcp connection with a peer and validation of handshake refer this [Github Repository](https://github.com/abhirampai/codecrafters-bittorrent-ruby/blob/master/app/tcp_connection.rb#L57C5-L69C8)
+For a sample implementation of tcp connection with a peer and validation of handshake using ruby, refer this [Github Repository](https://github.com/abhirampai/codecrafters-bittorrent-ruby/blob/master/app/tcp_connection.rb#L57C5-L69C8)
 
 In the next blog we would be looking into how to download a piece of file and save it to the disk.
