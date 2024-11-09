@@ -33,8 +33,8 @@ export default async function page({ params }) {
 
     return (
       <>
-      <Pagination slug={slug} />
       <Blog {...blogData} />
+      <Pagination slug={slug} /> 
       </>
     )
   }
