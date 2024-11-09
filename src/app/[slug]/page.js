@@ -2,6 +2,7 @@ import { getBlogData } from "@/lib/blogs";
 
 import Blog from "../page/Blog";
 import { blogs } from "../page/constants";
+import Pagination from "../page/Pagination";
 
 export async function generateStaticParams() {
   return blogs.map((post) => ({
@@ -30,6 +31,11 @@ export default async function page({ params }) {
   if (slug) {
     const blogData = await getBlogData(slug);
 
-    return <Blog {...blogData} />;
+    return (
+      <>
+      <Blog {...blogData} />
+      <Pagination slug={slug} /> 
+      </>
+    )
   }
 }
