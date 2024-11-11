@@ -124,6 +124,24 @@ export const blogs = [
       "Handshake",
       "Handshake validation",
     ]
+  },
+  {
+    name: "BitTorrent from Scratch part-3",
+    summary:
+    "In the fourth installment of our BitTorrent series, we explore the process of downloading a file piece after completing a handshake with a peer. Key steps include waiting for a bitfield message, sending an interested message, awaiting an unchoke response, sending request message, and awaiting piece message...",
+    publishedDate: "Nov 11, 2024",
+    slug: "lets_implement_bittorrent_from_scratch_part_3",
+    keywords: [
+      "BitTorrent",
+      "Peer Messages",
+      "TCP connections",
+      "Handshake",
+      "Handshake validation",
+      "Bitfield",
+      "Piece",
+      "File Download",
+      "Hash verification",
+    ]
   }
 ];
 
