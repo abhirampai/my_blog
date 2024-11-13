@@ -81,11 +81,11 @@ export const blogs = [
   {
     name: "BitTorrent from Scratch part-0",
     summary:
-      "This is the first part of a series on implementing Bittorrent from scratch. In this post, we will be looking into bencoding which is how data is communicated between peers and trackers...",
+      "This is the first part of a series on implementing BitTorrent from scratch. In this post, we will be looking into bencoding which is how data is communicated between peers and trackers...",
     publishedDate: "Nov 04, 2024",
     slug: "lets_implement_bittorrent_from_scratch_part_0",
     keywords: [
-      "Bittorrent",
+      "BitTorrent",
       "P2P",
       "Networking",
       "Torrent",
@@ -142,6 +142,17 @@ export const blogs = [
       "File Download",
       "Hash verification",
     ]
+  }, {
+    name: "Understanding Magnetic links",
+    summary:
+      "In this final part of our BitTorrent series, we explore magnetic links and their use in downloading files without needing a torrent file. Magnetic links are formatted as URIs that include info hashes, tracker URLs, and peer addresses to facilitate file sharing...",
+    publishedDate: "Nov 13, 2024",
+    slug: "understanding_magnetic_links",
+    keywords: [
+      "BitTorrent",
+      "Magnetic Links",
+      "Extension Handshake",
+      "Metadata Exchange",
   }
 ];
 
