@@ -153,6 +153,7 @@ export const blogs = [
       "Magnetic Links",
       "Extension Handshake",
       "Metadata Exchange",
+    ]
   }
 ];
 
