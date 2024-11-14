@@ -143,14 +143,14 @@ export const blogs = [
       "Hash verification",
     ]
   }, {
-    name: "Understanding Magnetic links",
+    name: "Understanding Magnet links",
     summary:
-      "In this final part of our BitTorrent series, we explore magnetic links and their use in downloading files without needing a torrent file. Magnetic links are formatted as URIs that include info hashes, tracker URLs, and peer addresses to facilitate file sharing...",
+      "In this final part of our BitTorrent series, we explore magnet links and their use in downloading files without needing a torrent file. Magnet links are formatted as URIs that include info hashes, tracker URLs, and peer addresses to facilitate file sharing...",
     publishedDate: "Nov 13, 2024",
     slug: "understanding_magnetic_links",
     keywords: [
       "BitTorrent",
-      "Magnetic Links",
+      "Magnet Links",
       "Extension Handshake",
       "Metadata Exchange",
     ]
