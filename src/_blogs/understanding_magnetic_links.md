@@ -2,7 +2,7 @@ This is the fifth part & the final part of our BitTorrent series, in our [previo
 
 
 ### What are Magnet Links?
-[Magnetic links](https://www.bittorrent.org/beps/bep_0009.html) are a powerful feature of the BitTorrent protocol. They allow users to download files directly without needing a torrent file. Instead of relying on a .torrent file to initiate a download, a magnet link contains all the information required to connect to peers and start downloading data.
+[Magnet links](https://www.bittorrent.org/beps/bep_0009.html) are a powerful feature of the BitTorrent protocol. They allow users to download files directly without needing a torrent file. Instead of relying on a .torrent file to initiate a download, a magnet link contains all the information required to connect to peers and start downloading data.
 
 ### The Magnet URI Format
 
