@@ -157,7 +157,7 @@ export const blogs = [
   }, {
     name: "Apache Kafka from Scratch part-0",
     summary:
-      "This blog demystifies the fundamental components of Apache Kafka, focusing on the role and function of Kafka brokers in distributed event streaming systems. Through a hands-on JavaScript example, you'll learn how to create a simple Kafka broker, understand the Kafka wire protocol, and send response messages to client requests.",
+      "This blog demystifies the fundamental components of Apache Kafka, focusing on the role and function of Kafka brokers in distributed event streaming systems. Through a JavaScript example, we'll look into creating a simple Kafka broker, understand the Kafka wire protocol, and send response messages to client requests.",
     publishedDate: "Nov 18, 2024",
     slug: "apache_kafka_from_scratch_part_0",
     keywords: [
