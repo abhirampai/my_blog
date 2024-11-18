@@ -33,7 +33,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
           <div className="pb-4 w-full" data-color-mode={theme}>
             <MarkdownPreview
               className="!font-mono"
-              style={{ backgroundColor: "transparent", padding: 16 }}
+              style={{ backgroundColor: "transparent" }}
               source={blogContent}
               rehypePlugins={[
                 [
@@ -42,16 +42,55 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
                     ...defaultSchema,
                     attributes: {
                       ...defaultSchema.attributes,
-                      svg: ['className', 'hidden', 'viewBox', 'fill', 'height', 'width'],
-                      path: ['fill-rule', 'd'],
-                      div: ['className', 'class', 'data-code', ...(defaultSchema.attributes?.div || [])],
+                      svg: [
+                        "className",
+                        "hidden",
+                        "viewBox",
+                        "fill",
+                        "height",
+                        "width",
+                      ],
+                      path: ["fill-rule", "d"],
+                      div: [
+                        "className",
+                        "class",
+                        "data-code",
+                        ...(defaultSchema.attributes?.div || []),
+                      ],
                     },
-                    tagNames: [...(defaultSchema.tagNames || []), 'svg', 'path', 'div'],
-                  }],
+                    tagNames: [
+                      ...(defaultSchema.tagNames || []),
+                      "svg",
+                      "path",
+                      "div",
+                    ],
+                  },
+                ],
                 remarkDirectiveRehype,
                 remarkDirective,
               ]}
               components={{
+                h1: ({ children }) => {
+                  return (
+                    <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight first:mt-0">
+                      {children[children.length - 1]}
+                    </h1>
+                  )
+                },
+                h2: ({ children }) => {
+                  return (
+                    <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">
+                      {children[children.length - 1]}
+                    </h2>
+                  );
+                },
+                h3: ({ children }) => {
+                  return (
+                    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">
+                      {children[children.length - 1]}
+                    </h3>
+                  );
+                },
                 a: ({ children, href }) => {
                   return (
                     <Link
