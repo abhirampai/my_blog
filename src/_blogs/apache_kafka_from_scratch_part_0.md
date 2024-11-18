@@ -64,28 +64,23 @@ Response Header v0 => correlation_id
 ```javascript
 import net from "net";
 
-const pick = (obj, ...args) => ({
-  ...args.reduce((res, key) => ({ ...res, [key]: obj[key] }), { })
-})
 const sendResponseMessage = (connection, messageObj) => {
   return connection.write(Buffer.concat(Object.values(messageObj)));
 };
 
 const server = net.createServer((connection) => {
   connection.on("data", (buffer) => {
-    const messageSize = buffer.subarray(0, 4);
-    const requestApiKey = buffer.subarray(4, 6);
-    const requestApiVersion = buffer.subarray(6, 8);
     const correlationId = buffer.subarray(8, 12);
+    const messageSize = Buffer.from([0, 0, 0, correlationId.length]);
+
     const responseMessage = {
       messageSize,
-      requestApiKey,
-      requestApiVersion,
       correlationId,
     };
+
     return sendResponseMessage(
       connection,
-      pick(responseMessage, "messageSize", "correlationId"),
+      responseMessage,
     );
   });
 }
@@ -93,7 +88,7 @@ const server = net.createServer((connection) => {
 server.listen(9092, "127.0.0.1");
 ```
 
-In the example above, whenever the client sends a request message, we parse the messageSize and correlationId and send back a response containing these fields.
+In the example above, whenever the client sends a request message, we parse the `correlationId` then calculate the `message size` and send back a response containing these fields.
 
 ### Conclusion
 In this blog, we've explored Apache Kafka, the role of Kafka brokers, how to create a broker server, and how to send a response message with the correlation ID when a client sends a request message.
