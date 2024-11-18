@@ -36,19 +36,20 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
               style={{ backgroundColor: "transparent", padding: 16 }}
               source={blogContent}
               rehypePlugins={[
-                rehypeSanitize,
+                [
+                  rehypeSanitize,
+                  {
+                    ...defaultSchema,
+                    attributes: {
+                      ...defaultSchema.attributes,
+                      svg: ['className', 'hidden', 'viewBox', 'fill', 'height', 'width'],
+                      path: ['fill-rule', 'd'],
+                      div: ['className', 'class', 'data-code', ...(defaultSchema.attributes?.div || [])],
+                    },
+                    tagNames: [...(defaultSchema.tagNames || []), 'svg', 'path', 'div'],
+                  }],
                 remarkDirectiveRehype,
                 remarkDirective,
-                {
-                  ...defaultSchema,
-                  attributes: {
-                    ...defaultSchema.attributes,
-                    svg: ['className', 'hidden', 'viewBox', 'fill', 'height', 'width'],
-                    path: ['fill-rule', 'd'],
-                    div: ['className', 'class', 'data-code', ...(defaultSchema.attributes?.div || [])],
-                  },
-                  tagNames: [...(defaultSchema.tagNames || []), 'svg', 'path', 'div'],
-                }
               ]}
               components={{
                 a: ({ children, href }) => {
