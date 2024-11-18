@@ -33,7 +33,7 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
           <div className="pb-4 w-full" data-color-mode={theme}>
             <MarkdownPreview
               className="!font-mono"
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", padding: 16 }}
               source={blogContent}
               rehypePlugins={[
                 [
