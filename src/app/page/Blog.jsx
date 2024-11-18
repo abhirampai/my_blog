@@ -1,7 +1,7 @@
 "use client";
 
 import MarkdownPreview from "@uiw/react-markdown-preview";
-import rehypeSanitize from "rehype-sanitize";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import remarkDirectiveRehype from "remark-directive-rehype";
@@ -33,12 +33,22 @@ const Blog = ({ readingTimeText, publishedDate, name, blogContent }) => {
           <div className="pb-4 w-full" data-color-mode={theme}>
             <MarkdownPreview
               className="!font-mono"
-              style={{ backgroundColor: "transparent" }}
+              style={{ backgroundColor: "transparent", padding: 16 }}
               source={blogContent}
               rehypePlugins={[
                 rehypeSanitize,
                 remarkDirectiveRehype,
                 remarkDirective,
+                {
+                  ...defaultSchema,
+                  attributes: {
+                    ...defaultSchema.attributes,
+                    svg: ['className', 'hidden', 'viewBox', 'fill', 'height', 'width'],
+                    path: ['fill-rule', 'd'],
+                    div: ['className', 'class', 'data-code', ...(defaultSchema.attributes?.div || [])],
+                  },
+                  tagNames: [...(defaultSchema.tagNames || []), 'svg', 'path', 'div'],
+                }
               ]}
               components={{
                 a: ({ children, href }) => {
