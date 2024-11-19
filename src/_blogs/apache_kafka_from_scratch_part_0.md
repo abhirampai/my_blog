@@ -1,5 +1,7 @@
 Apache Kafka is a distributed event store and stream-processing platform often used for high-performance data pipelines. In this blog, we'll explore how Kafka brokers communicate with clients using the TCP protocol, and learn how various requests are handled.
 
+![Apache Kafka Architecture](/assets/cluster.png "Apache Kafka Architecture with brokers and clients")
+
 ## Kafka broker
 Before we dive into technical specifics, let’s understand what a Kafka broker is.
 
