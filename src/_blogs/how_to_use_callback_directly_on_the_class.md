@@ -11,12 +11,12 @@ ActiveJob in the Gem
 Here is the job in the gem that needs to call a method on the host application’s class:
 
 ```ruby
-\# ActiveJob in the gem  
+# ActiveJob in the gem  
 class MyJob < ActiveJob::Base  
   def perform  
     result = # perform the job and get the result  
-    if ModelName.respond\_to?(:after\_result, true)  
-      ModelName.after\_result { result }  
+    if ModelName.respond_to?(:after_result, true)  
+      ModelName.after_result { result }  
     end  
   end  
 end
@@ -30,16 +30,18 @@ Host Application Class Method
 In the host application, we define the `after_result` method on the class:
 
 ```ruby
-\# Class in host application  
-class ModelName  
-  def self.after\_result  
-    result = yield if block\_given?  
-    process(result) if result.present?  
-  end  
+# Class in host application  
+class ModelName
+  class << self
+    def after_result  
+      result = yield if block_given?  
+      process(result) if result.present?  
+    end  
   
-  def self.process(result)  
-    # process the result  
-  end  
+    def process(result)  
+      # process the result  
+    end  
+  end
 end
 ```
 
@@ -51,13 +53,13 @@ Instance Method Callbacks
 If we were to use instance methods and Rails callbacks, it would look slightly different. Callbacks can be defined on class instances using `define_callbacks` and `set_callback`.
 
 ```ruby
-\# Class in host application  
+# Class in host application  
 class ModelName  
-  define\_callbacks :result  
-  set\_callback :result, :after, :after\_result, if: -> { respond\_to?(:after\_result, true) }  
+  define_callbacks :result  
+  set_callback :result, :after, :after_result, if: -> { respond_to?(:after_result, true) }  
   
-  def after\_result  
-    result = yield if block\_given?  
+  def after_result  
+    result = yield if block_given?  
     process(result) if result.present?  
   end  
   
@@ -75,12 +77,12 @@ Modified ActiveJob in the Gem
 To use instance method callbacks, modify the job as follows:
 
 ```ruby
-\# ActiveJob in the gem  
+# ActiveJob in the gem  
 class MyJob < ActiveJob::Base  
   def perform(instance)  
     result = # perform the job and get the result  
-    if instance.respond\_to?(:after\_result, true)  
-      instance.run\_callbacks(:result) { result }  
+    if instance.respond_to?(:after_result, true)  
+      instance.run_callbacks(:result) { result }  
     end  
   end  
 end
