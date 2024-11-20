@@ -12,7 +12,7 @@ Inside the javascripts/test_rails_engine folder we will add the application.js f
 
 ```
 //= require ./stimulus/init  
-//= require ./controllers/hello\_controller
+//= require ./controllers/hello_controller
 ```
 
 Now create a folder stimulus inside the javascripts/test_rails_engine folder and an init.js file inside of stimulus folder with the following content:
