@@ -168,7 +168,7 @@ export const blogs = [
       "Data pipelines"
     ]
   }, {
-    name: "Apache Kafka From Scratch part-1",
+    name: "Apache Kafka from Scratch part-1",
     summary:
       "In this blog, we dive into various Kafka APIs, focusing primarily on the ApiVersions, DescribeTopicPartitions, and Fetch APIs. We explain the structure and parsing method of an ApiVersions request, detailing how to handle and respond to such requests in a broker server...",
     publishedDate: "Nov 22, 2024",
