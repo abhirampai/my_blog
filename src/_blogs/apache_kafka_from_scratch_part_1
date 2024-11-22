@@ -1,0 +1,129 @@
+In our [previous blog](apache_kafka_from_scratch_part_0) explored Apache Kafka, the role of Kafka brokers, how to create a broker server, and how to send a response message with the correlation ID when a client sends a request message. In this blog we will be looking into handling various kafka apis.
+
+## Kafka APIs
+Every Kafka request is an api call. Some of them that we focus in this blog series are:
+1. `ApiVersions` returns the broker supported API versions.
+2. `DescribeTopicPartitions`  describes the topics and partitions inside those topics.
+3. `Fetch` fetches the topics and partitions.
+
+For the list of available kafka apis visit the [Kafka documentation](https://kafka.apache.org/protocol.html#protocol_api_keys)
+
+First lets try ApiVersions.
+
+### APIVersions
+An APIVersions API request will have the following structure
+```
+Message Size -> 4 bytes
+API key -> 2 bytes, which is 18 for APIVersion
+API version -> 2 bytes, the version of request and response to be used. In this case we will be using version 4.
+CorrelationId -> 4 bytes, id to match the responses.
+Client Id -> 
+  - Length -> 2 bytes
+  - Contents -> variable size
+Tag Buffer -> An empty tagged field array, represented by a single byte of value 0x00.
+Client Software Name ->
+  - Length -> 1 byte
+  - Content -> variable size
+Client Version ->
+  - Length -> 1 byte
+  - Content -> variable size
+TagBuffer
+```
+
+A sample request sent by client would look like [this](https://binspec.org/kafka-api-versions-request-v4).
+
+## Parsing API key and version
+
+When the client sents a request we first have to parse the api key and version we can use the following code to achieve the same
+
+```
+const requestApiKey = buffer.subarray(4, 6);
+const requestApiVersion = buffer.subarray(6, 8);
+```
+
+## Handling API request and sending a response
+So since we mentioned that we will be using version 4 of APIVersions API response the structure looks something like this:
+```
+ApiVersions Response (Version: 4) => error_code [api_keys] throttle_time_ms TAG_BUFFER 
+  error_code => INT16
+  api_keys => api_key min_version max_version TAG_BUFFER 
+    api_key => INT16
+    min_version => INT16
+    max_version => INT16
+  throttle_time_ms => INT32
+
+Error Code -> The top-level error code.
+ApiKeys -> Returns an array of api key, min_version of api and max_version of api. For APIVersion request the min_version is 0 and max_version is 4.
+throttle_time_ms -> The duration in milliseconds for which the request was throttled due to a quota violation, or zero if the request did not violate any quota.
+```
+
+Now lets see how we can implement the same in our broker server.
+We will create a file `api_versions_request.js` to handle the same
+
+```
+const API_KEY_VERSIONS = [...Array(5).keys()];
+
+export const handleApiVersionsRequest = (
+  connection,
+  responseMessage,
+  requestVersion,
+) => {
+  const errorCode = Buffer.from([0, 0]);
+  const maxVersion = Buffer.from([0, 4]);
+  const minVersion = Buffer.from([0, 0]);
+  const throttleTimeMs = Buffer.from([0, 0, 0, 0]);
+  const tagBuffer = Buffer.from([0]);
+  const apiKeyLength = Buffer.from([2]);
+  
+  const updatedResponseMessage = {
+    ...responseMessage,
+    errorCode,
+    apiKeyLength,
+    maxVersion,
+    minVersion,
+    arrayTagBuffer: tagBuffer,
+    throttleTimeMs,
+    tagBuffer,
+  };
+  if (!API_KEY_VERSIONS.includes(requestVersion)) {
+    updatedResponseMessage.errorCode = Buffer.from([0, 35]);
+    sendResponseMessage(
+      connection,
+      pick(updatedResponseMessage, "messageSize", "correlationId", "errorCode"),
+    );
+  } else {
+    updatedResponseMessage.messageSize = Buffer.from([0, 0, 0, 19]);
+    sendResponseMessage(
+      connection,
+      pick(
+        updatedResponseMessage,
+        "messageSize",
+        ...apiVersioningResponseFields(requestVersion),
+      ),
+    );
+  }
+};
+```
+
+Now in the main code we just check if the request Api key is 18 and use the above method
+
+```
+if (requestApiKey.readInt16BE() === 18) {
+  handleApiVersionsRequest(connection, responseMessage, requestVersion);
+} else {
+  sendResponseMessage(
+    connection,
+    pick(responseMessage, "messageSize", "correlationId"),
+  );
+}
+```
+
+To know more on APIVersion request and response visit [Kafka documentation](https://kafka.apache.org/protocol.html#The_Messages_ApiVersions)
+
+Conclusion
+In this blog we saw what is kafka apis and different one that we explain in this blog series. We also looked into how to handle the APIVersions request from client and send a response from the broker.
+
+For a sample implementation of the same you can check out the following [Github repo](https://github.com/abhirampai/codecrafters-kafka-javascript/commit/0aa0b63068d6c1eda16375c690283c36e64171f3#diff-5f5ac547707d85825f5ce55d9deb200422b29d711b82263eb4bd3a1cab6a661a)
+
+In the next blog we will look into handling describe topic partitions api.
+
