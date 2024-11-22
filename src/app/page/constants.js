@@ -157,7 +157,7 @@ export const blogs = [
   }, {
     name: "Apache Kafka from Scratch part-0",
     summary:
-      "This blog demystifies the fundamental components of Apache Kafka, focusing on the role and function of Kafka brokers in distributed event streaming systems. Through a JavaScript example, we'll look into creating a simple Kafka broker, understand the Kafka wire protocol, and send response messages to client requests.",
+      "This blog demystifies the fundamental components of Apache Kafka, focusing on the role and function of Kafka brokers in distributed event streaming systems. Through a JavaScript example, we'll look into creating a simple Kafka broker, understand the Kafka wire protocol, and send response messages to client requests...",
     publishedDate: "Nov 18, 2024",
     slug: "apache_kafka_from_scratch_part_0",
     keywords: [
@@ -166,6 +166,24 @@ export const blogs = [
       "Distributed system",
       "Event streaming",
       "Data pipelines"
+    ]
+  }, {
+    name: "Apache Kafka From Scratch part-1",
+    summary:
+      "In this blog, we dive into various Kafka APIs, focusing primarily on the ApiVersions, DescribeTopicPartitions, and Fetch APIs. We explain the structure and parsing method of an ApiVersions request, detailing how to handle and respond to such requests in a broker server...",
+    publishedDate: "Nov 22, 2024",
+    slug: apache_kafka_from_scratch_part_1",
+    keywords: [
+      "Apache Kafka",
+      "Kafka APIs",
+      "ApiVersions",
+      "DescribeTopicPartitions",
+      "Fetch",
+      "API request handling",
+      "broker server",
+      "JavaScript implementation",
+      "Kafka documentation",
+      "GitHub sample implementation"
     ]
   }
 ];
