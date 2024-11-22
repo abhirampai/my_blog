@@ -1,21 +1,23 @@
-In our [previous blog](apache_kafka_from_scratch_part_0) explored Apache Kafka, the role of Kafka brokers, how to create a broker server, and how to send a response message with the correlation ID when a client sends a request message. In this blog we will be looking into handling various kafka apis.
+In our [previous blog](apache_kafka_from_scratch_part_0) we explored Apache Kafka, the role of Kafka brokers, how to set up a broker server, and how to send a response message with a correlation ID when a client sends a request message. In this blog, we will delve into handling various Kafka APIs.
 
 ## Kafka APIs
-Every Kafka request is an api call. Some of them that we focus in this blog series are:
-1. `ApiVersions` returns the broker supported API versions.
-2. `DescribeTopicPartitions`  describes the topics and partitions inside those topics.
-3. `Fetch` fetches the topics and partitions.
+Every Kafka request is essentially an API call. In this blog series, we will focus on some of the key API calls:
 
-For the list of available kafka apis visit the [Kafka documentation](https://kafka.apache.org/protocol.html#protocol_api_keys)
+1. `ApiVersions`: Returns the broker-supported API versions.
+2. `DescribeTopicPartitions`:  Describes the topics and partitions within those topics.
+3. `Fetch`: Retrieves data from topics and partitions.
 
-First lets try ApiVersions.
+For a comprehensive list of available Kafka APIs, please visit the [Kafka documentation](https://kafka.apache.org/protocol.html#protocol_api_keys).
 
-### APIVersions
-An APIVersions API request will have the following structure
+Let's start with the ApiVersions API request.
+
+### ApiVersions API
+An ApiVersions API request has the following structure:
+
 ```
 Message Size -> 4 bytes
 API key -> 2 bytes, which is 18 for APIVersion
-API version -> 2 bytes, the version of request and response to be used. In this case we will be using version 4.
+API version -> 2 bytes, the version of request and response to be used. We will use version 4.
 CorrelationId -> 4 bytes, id to match the responses.
 Client Id -> 
   - Length -> 2 bytes
@@ -27,22 +29,23 @@ Client Software Name ->
 Client Version ->
   - Length -> 1 byte
   - Content -> variable size
-TagBuffer
+Tag Buffer
 ```
 
-A sample request sent by client would look like [this](https://binspec.org/kafka-api-versions-request-v4).
+A sample request sent by a client can be viewed [here](https://binspec.org/kafka-api-versions-request-v4).
 
-## Parsing API key and version
+## Parsing API Key and Version
 
-When the client sents a request we first have to parse the api key and version we can use the following code to achieve the same
+When a client sends a request, we first need to parse the API key and version. The following code snippet demonstrates how this can be achieved:
 
 ```
 const requestApiKey = buffer.subarray(4, 6);
 const requestApiVersion = buffer.subarray(6, 8);
 ```
 
-## Handling API request and sending a response
-So since we mentioned that we will be using version 4 of APIVersions API response the structure looks something like this:
+## Handling API Requests and Sending Responses
+Since we will be using version 4 of the ApiVersions API response, its structure looks like this:
+
 ```
 ApiVersions Response (Version: 4) => error_code [api_keys] throttle_time_ms TAG_BUFFER 
   error_code => INT16
@@ -57,8 +60,7 @@ ApiKeys -> Returns an array of api key, min_version of api and max_version of ap
 throttle_time_ms -> The duration in milliseconds for which the request was throttled due to a quota violation, or zero if the request did not violate any quota.
 ```
 
-Now lets see how we can implement the same in our broker server.
-We will create a file `api_versions_request.js` to handle the same
+Next, let's implement this in our broker server. We'll create a file named `api_versions_request.js` to handle the request:
 
 ```
 const API_KEY_VERSIONS = [...Array(5).keys()];
@@ -105,7 +107,7 @@ export const handleApiVersionsRequest = (
 };
 ```
 
-Now in the main code we just check if the request Api key is 18 and use the above method
+In the main code, we check if the request API key is 18 and utilize the above method:
 
 ```
 if (requestApiKey.readInt16BE() === 18) {
@@ -118,12 +120,10 @@ if (requestApiKey.readInt16BE() === 18) {
 }
 ```
 
-To know more on APIVersion request and response visit [Kafka documentation](https://kafka.apache.org/protocol.html#The_Messages_ApiVersions)
+For more information on the ApiVersions request and response, please refer to the [Kafka documentation](https://kafka.apache.org/protocol.html#The_Messages_ApiVersions)
 
-Conclusion
-In this blog we saw what is kafka apis and different one that we explain in this blog series. We also looked into how to handle the APIVersions request from client and send a response from the broker.
+### Conclusion
+In this blog, we discussed Kafka APIs with a focus on the API version requests and responses, including how to handle these in your broker. For a sample implementation, check out this [Github repository](https://github.com/abhirampai/codecrafters-kafka-javascript/commit/0aa0b63068d6c1eda16375c690283c36e64171f3#diff-5f5ac547707d85825f5ce55d9deb200422b29d711b82263eb4bd3a1cab6a661a)
 
-For a sample implementation of the same you can check out the following [Github repo](https://github.com/abhirampai/codecrafters-kafka-javascript/commit/0aa0b63068d6c1eda16375c690283c36e64171f3#diff-5f5ac547707d85825f5ce55d9deb200422b29d711b82263eb4bd3a1cab6a661a)
-
-In the next blog we will look into handling describe topic partitions api.
+In the next blog, we will explore handling the DescribeTopicPartitions API.
 
