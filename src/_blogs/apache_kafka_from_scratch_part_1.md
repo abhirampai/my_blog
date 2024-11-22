@@ -1,4 +1,4 @@
-In our [previous blog](apache_kafka_from_scratch_part_0) we explored Apache Kafka, the role of Kafka brokers, how to set up a broker server, and how to send a response message with a correlation ID when a client sends a request message. In this blog, we will delve into handling various Kafka APIs.
+In our [previous blog](apache_kafka_from_scratch_part_0), we explored Apache Kafka, the role of Kafka brokers, how to set up a broker server, and how to send a response message with a correlation ID when a client sends a request message. In this blog, we will delve into handling various Kafka APIs.
 
 ## Kafka APIs
 Every Kafka request is essentially an API call. In this blog series, we will focus on some of the key API calls:
