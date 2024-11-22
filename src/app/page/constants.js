@@ -172,7 +172,7 @@ export const blogs = [
     summary:
       "In this blog, we dive into various Kafka APIs, focusing primarily on the ApiVersions, DescribeTopicPartitions, and Fetch APIs. We explain the structure and parsing method of an ApiVersions request, detailing how to handle and respond to such requests in a broker server...",
     publishedDate: "Nov 22, 2024",
-    slug: apache_kafka_from_scratch_part_1",
+    slug: "apache_kafka_from_scratch_part_1",
     keywords: [
       "Apache Kafka",
       "Kafka APIs",
