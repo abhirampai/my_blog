@@ -48,7 +48,7 @@ const requestApiVersion = buffer.subarray(6, 8);
 
 ## Handling API Requests and Sending Responses
 
-![ApiVersions Response](/assets/ApiVersionsRequest.png "ApiVersions Response sent by kafka broker")
+![ApiVersions Response](/assets/ApiVersionsResponse.png "ApiVersions Response sent by kafka broker")
 
 Since we will be using version 4 of the ApiVersions API response, its structure looks like this:
 
