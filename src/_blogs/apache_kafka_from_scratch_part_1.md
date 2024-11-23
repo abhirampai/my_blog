@@ -12,6 +12,9 @@ For a comprehensive list of available Kafka APIs, please visit the [Kafka docume
 Let's start with the ApiVersions API request.
 
 ### ApiVersions API
+
+![ApiVersions Request](/assets/ApiVersionsRequest.png "ApiVersions Request sent by client")
+
 An ApiVersions API request has the following structure:
 
 ```
@@ -44,6 +47,9 @@ const requestApiVersion = buffer.subarray(6, 8);
 ```
 
 ## Handling API Requests and Sending Responses
+
+![ApiVersions Response](/assets/ApiVersionsResponse.png "ApiVersions Response sent by kafka broker")
+
 Since we will be using version 4 of the ApiVersions API response, its structure looks like this:
 
 ```
