@@ -1,0 +1,1 @@
+In our previous blog we discussed about the ApiVersioms api request and responses, in this blog we will be covering describe topics request and responses in detail.
