@@ -1,3 +1,3 @@
-This repo contains the aource code for my blog site.
+This repo contains the source code for my blog site.
 
 Build with nextjs
