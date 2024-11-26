@@ -1,13 +1,9 @@
-In our previous blog we discussed about the ApiVersioms api request and responses, in this blog we will be covering describe topics request and responses in detail.
+In our [previous blog post](/apache_kafka_from_scratch_part_1), we explored API Versions request and response structure. This time, we'll delve into the details of the Describe Topics API, including how to handle its requests and responses.
 
-## Adding Describe Topics Api to ApiVersions response
+## Enhancing the API Versions Response with Describe Topics API
+To begin with, the Describe Topics API has an ApiKey of 75. Both the minimum and maximum version of the request/response supported for this API is 0. Let's update our existing ApiVersions request handler to incorporate details for the Describe Topics API.
 
-- The ApiKey for a describe topics is 75
-- The min and max version of request/response for this API is 0.
-
-Now lets modify our already existing ApiVersions request handler to include describe topics api details.
-
-First we move all constants to a new file.
+First, let's extract constants into a new constants.js file:
 ```javascript
 export const API_KEY_VERSIONS = [...Array(5).keys()];
 
@@ -19,7 +15,7 @@ export const API_KEYS = {
 };
 ```
 
-Now we update the handleApiVersionsRequest helper as follows:
+Next, let's modify the handleApiVersionsRequest function as follows:
 
 ```javascript
 import { API_KEY_VERSIONS, API_KEYS } from './constants.js'
@@ -82,9 +78,9 @@ export const handleApiVersionsRequest = (
 };
 ```
 
-Now when we send a ApiVersions we would get 2 ApiKey array one for ApiVersions and the other for describe topics Api.
+When sending an ApiVersions request, the response now includes two ApiKey arrays: one for ApiVersions and another for the Describe Topics API.
 
-## Describe Topics Api Request Structure
+## Describe Topics API Request Structure
 ```
 Message Size -> 4 bytes
 API key -> 2 bytes, which is 18 for APIVersion
@@ -99,11 +95,11 @@ Topics array length -> 1 byte
     - Length - 1 byte
     - Content - variable size
   Tag Buffer
-Response Partition Limit -> 4 bytes A 4-byte integer that limits the number of partitions to be returned in the response.
-Cursor -> 1 byte Nullable field that can be used for pagination.
+Response Partition Limit -> 4 bytes, limits the number of partitions in the response
+Cursor -> 1 byte, a nullable field used for pagination
 Tag Buffer
 ```
-A sample request sent by a client can be viewed [here](https://binspec.org/kafka-describe-topic-partitions-request-v0).
+You can view a sample request sent by a client [here](https://binspec.org/kafka-describe-topic-partitions-request-v0).
 
 ### Parsing topics
 
@@ -129,7 +125,7 @@ const topics = new Array(topicArrayLength).fill(0).map((_) => {
   return [topicLength, topicName];
 });
 ```
-Now that we have the topics we are ready to send the response.
+With the topics parsed, we can now proceed to send a response.
 
 ## Describe Topics Api Response
 ```
@@ -156,7 +152,7 @@ DescribeTopicPartitions Response (Version: 0) => throttle_time_ms [topics] next_
     partition_index => INT32
 ```
 
-Now lets look into how we can get all these data.
+Now let's look into how we can get all this data.
 
 ## Cluster metadata file
 
@@ -178,10 +174,9 @@ let topicIndexInLogFile = logFile.indexOf(topicName);
 })
 ```
 
-### Cluster metadata file structure
-A sample cluster metadata file can be found [here](https://binspec.org/kafka-cluster-metadata).
+### Now let's look into how we can get all this data.
+A sample cluster metadata file can be found [here](https://binspec.org/kafka-cluster-metadata). Important fields include:
 
-The values that we care about from the cluster metadata file are
 ```
 TopicUUID,
 partitionId,
@@ -191,7 +186,7 @@ replicaArray,
 isrNodesArray
 ```
 
-### Parsing the required fields from cluster metadata file
+### Parsing Required Fields
 ```javascript
 topicIndexInLogFile = topicIndexInLogFile + topicLength.readUInt8() - 1;
 topicId = logFile.subarray(topicIndexInLogFile, topicIndexInLogFile + 16);
@@ -272,8 +267,8 @@ const handleReplicaAndIsrNodes = (arrayIndex, topicLogs) => {
 ```
 
 ## Conclusion
-In this blog we saw about Describe topics api in detail, how to handle the request get the topics metadata from the cluster metadata file and send the response.
+In this blog we saw about Describe topics API in detail, how to handle requests, gather topic metadata from the cluster metadata file, and construct a response.
 
-You can find the implementation of the same using Javascript in this [Github Repository](https://github.com/abhirampai/codecrafters-kafka-javascript/blob/master/app/describe_topic_partitions_request.js)
+For a full implementation in JavaScript, check out the following [Github Repository](https://github.com/abhirampai/codecrafters-kafka-javascript/blob/master/app/describe_topic_partitions_request.js)
 
-In the next blog we will look into the fetch request api.
+In our next blog post, we will explore the Fetch Request API.
