@@ -182,8 +182,22 @@ export const blogs = [
       "API request handling",
       "broker server",
       "JavaScript implementation",
-      "Kafka documentation",
-      "GitHub sample implementation"
+      "Kafka documentation"
+    ]
+  }, {
+    name: "Apache Kafka from Scratch part-2",
+    summary:
+      "In this blog, we explore the implementation of the Describe Topics API in Kafka. We explain the structure for the request and response of Describe Topics and also look into the cluster metadata file that holds the data related to topics sent via the Describe Topics request...",
+    publishedDate: "Nov 26, 2024",
+    slug: "apache_kafka_from_scratch_part_2",
+    keywords: [
+      "Apache Kafka",
+      "Describe Topics",
+      "Cluster Metadata file",
+      "Topics",
+      "Partitions",
+      "ReplicaNodes",
+      "ISRNodes"
     ]
   }
 ];
