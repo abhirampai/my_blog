@@ -1,9 +1,9 @@
-In our [previous blog](/apache_kafka_from_scratch_part_2) we saw about DescribeTopics Api request and response. In this blog we will focus on Fetch Api request and response.
+In our [previous blog](/apache_kafka_from_scratch_part_2) we discussed the DescribeTopics API request and response. In this blog, we'll focus on the Fetch API request and response.
 
 ## Enhancing the API Versions Response with Fetch API
-The Fetch API has an ApiKey of 1. The minimum version for Fetch API is 0 and the max version is 17. Let's update our existing ApiVersions request handler to incorporate details for the Fetch API.
+The Fetch API is identified by an ApiKey of 1. It supports a minimum version of 0 and a maximum version of 17. Let’s enhance our current ApiVersions request handler to include details for the Fetch API.
 
-Lets modify the contents of constant.js file
+Let's modify the contents of `constant.js` file
 ```javascript
 export const API_KEY_VERSIONS = [...Array(5).keys()];
 
@@ -19,6 +19,7 @@ export const API_KEYS = {
 ```
 
 ## Fetch API request structure
+Below is the structure of a Fetch Request (Version 17):
 ```
 Fetch Request (Version: 17) => max_wait_ms min_bytes max_bytes isolation_level session_id session_epoch [topics] [forgotten_topics_data] rack_id TAG_BUFFER 
   max_wait_ms => INT32
@@ -41,9 +42,7 @@ Fetch Request (Version: 17) => max_wait_ms min_bytes max_bytes isolation_level s
     partitions => INT32
   rack_id => COMPACT_STRING
 ```
-You can know more about the Fetch API request [here](https://kafka.apache.org/protocol.html#The_Messages_Fetch).
-
-Similar to how we parsed the topics and partitions in our previous blog we can follow the same here too.
+More detailed information about the Fetch API request can be found [here](https://kafka.apache.org/protocol.html#The_Messages_Fetch).
 
 ## Fetch API response
 ```
@@ -66,8 +65,9 @@ Fetch Response (Version: 17) => throttle_time_ms error_code session_id [response
       records => COMPACT_RECORDS
 ```
 
-Lets look into how to parse the required data and send the response
+Let's discuss how to parse the required data and construct the response.
 
+### Parsing and sending a response
 ```javascript
 const clientLength = buffer.subarray(12, 14);
 const clientLengthValue = clientLength.readInt16BE();
@@ -170,7 +170,5 @@ const readFromFileBuffer = (topicName, partitionIndex) => {
 ```
 
 ## Conclusion
-In this blog we saw about Fetch API request and response.
-
-For a full implementation in JavaScript, check out the following [Github Repository](https://github.com/abhirampai/codecrafters-kafka-javascript/blob/master/app/fetch_api_request.js).
+In this blog, we explored the Fetch API request and response handling mechanism. For a complete JavaScript implementation, check out the [Github Repository](https://github.com/abhirampai/codecrafters-kafka-javascript/blob/master/app/fetch_api_request.js).
 
