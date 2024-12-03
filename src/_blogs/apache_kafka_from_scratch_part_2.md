@@ -83,8 +83,8 @@ When sending an ApiVersions request, the response now includes two ApiKey arrays
 ## Describe Topics API Request Structure
 ```
 Message Size -> 4 bytes
-API key -> 2 bytes, which is 18 for APIVersion
-API version -> 2 bytes, the version of request and response to be used. We will use version 4.
+API key -> 2 bytes, which is 75 for Describe topics.
+API version -> 2 bytes, the version of request and response to be used. We will use version 0.
 CorrelationId -> 4 bytes, id to match the responses.
 Client Id -> 
   - Length -> 2 bytes

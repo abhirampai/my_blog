@@ -199,6 +199,20 @@ export const blogs = [
       "ReplicaNodes",
       "ISRNodes"
     ]
+  }, {
+    name: "Apache Kafka from Scratch part-3",
+    summary: 
+      "In this blog post, we dive into the workings of the Fetch API in Apache Kafka. We start by updating our existing ApiVersions request handler to include the Fetch API, which has an ApiKey of 1 and supports versions ranging from 0 to 17. We then outline the structure of a Fetch API request and response, demonstrating how to parse and handle these messages using JavaScript...",
+    publishedDate: "Dec 3, 2024",
+    slug: "apache_kafka_from_scratch_part_3",
+    keywords: [
+      "Apache Kafka",
+      "Fetch API",
+      "API request handling",
+      "broker server",
+      "JavaScript implementation",
+      "Kafka documentation"
+    ]
   }
 ];
 
