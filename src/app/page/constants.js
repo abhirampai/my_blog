@@ -213,6 +213,20 @@ export const blogs = [
       "JavaScript implementation",
       "Kafka documentation"
     ]
+  }, {
+    name: "How to execute code using ruby and docker",
+    summary:
+      "In this blog we discover how to create a multi-language code executor using Ruby and Docker. It covers pulling necessary images, installing the docker-api gem, and executing programs written in various languages, including Ruby, Python, C, C++, Java, C#, and Rust using docker container...",
+    publishedDate: "Dec 4, 2024",
+    slug: "how_to_create_a_code_executor_using_ruby_and_docker",
+    keywords: [
+      "code-executor",
+      "ruby",
+      "docker",
+      "docker-images",
+      "docker-conatiners",
+      "docker-api"
+    ]
   }
 ];
 
