@@ -1,27 +1,30 @@
-In this blog we will be looking into how to execute code using ruby and docker. We will be adding support for ruby, python, go, c, cpp, c#, java and rust languages.
+In this blog post, we'll explore how to execute code using Ruby and Docker, and extend support to multiple languages such as Python, Go, C, C++, C#, Java, and Rust.
 
-So lets first setup docker. You can follow the instructions provided [here](https://docs.docker.com/engine/install/) to setup docker.
+## Setting Up Docker
+To start, you'll need Docker installed on your system. Please follow the comprehensive installation guide provided [here](https://docs.docker.com/engine/install/).
 
-Now lets add `docker-api` gem that helps to connect docker with ruby.
+## Installing the docker-api Gem
 
+To connect Docker with Ruby, we'll use the docker-api gem. Install it by running:
 ```sh
 gem install docker-api
 ```
 
-## Running ruby program
-First lets start of by trying to run a simple hello world program in ruby.
+## Running ruby program using docker
+Let's begin with a simple "Hello, World!" program in Ruby.
 
 ```ruby
 puts "hello world"
 ```
 
-Now lets pull the docker image for ruby.
-
+### Pulling ruby docker image
+First, pull the Ruby Docker image:
 ```sh
 docker pull ruby
 ```
 
-Next lets add the logic to `executor.rb`:
+### Creating the Executor Script
+Next, create an executor.rb file with the following logic:
 
 ```ruby
 # requiring docker-api gem to connect with docker container
@@ -59,20 +62,20 @@ container.delete(force: true)
 file.close
 ```
 
-Now lets run the program
+### Running the Executor Script
+Run the Ruby program by executing:
 ```sh
 ruby executor.rb hello_world.rb
 ```
 
-We should now get the output as
+If everything is set up correctly, you should see the output:
 ```sh
 hello world
 ```
 
-## Add support for other languages
-Now lets add support for other languages as well.
+## Adding Support for Other Languages
+To extend support for other languages, pull the necessary Docker images:
 
-First lets install all the docker images
 ```sh
 docker pull python
 docker pull golang
@@ -82,7 +85,8 @@ docker pull mono
 docker pull rust
 ```
 
-Now lets generalize the setup for creating the container
+### Generalizing the Setup
+Create a method to determine the command and image based on file extensions:
 
 ```ruby
 def command_image_binding(file)
@@ -139,9 +143,9 @@ container = Docker::Container.create(
 )
 ```
 
-Now we have the setup that can run program in ruby, python, c, cpp, java, c# and rust.
+With this setup, you can now execute programs written in Ruby, Python, C, C++, Java, C#, and Rust using Docker containers.
 
 ## Conclusion
-In this blog we saw how to create a simple code executor using ruby and docker.
+In this blog post, we demonstrated how to create a simple code executor using Ruby and Docker.
 
-For the complete code head over to this [Github Repo](https://github.com/abhirampai/code-executor-ruby)
+For the complete code visit the [Github Repo](https://github.com/abhirampai/code-executor-ruby)
