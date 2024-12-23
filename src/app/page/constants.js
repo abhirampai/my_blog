@@ -227,6 +227,19 @@ export const blogs = [
       "docker-conatiners",
       "docker-api"
     ]
+  }, {
+    name: "How to Use the SpeechSynthesis API for Text-to-Speech in the Browser",
+    summary:
+      "This blog explains how to use the Web Speech API's SpeechSynthesis property to implement a text-to-speech feature in a browser. It covers creating speech requests, selecting voices, speaking text, and handling events for enhanced interactivity.",
+    publishedDate: "Dec 23, 2024",
+    slug: "using_window_speech_synthesis_for_tts",
+    keywords: [
+      "Text-to-Speech",
+      "SpeechSynthesis API",
+      "JavaScript TTS",
+      "Web Speech API",
+      "SpeechSynthesisUtterance"
+    ]
   }
 ];
 
