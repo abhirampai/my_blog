@@ -1,6 +1,6 @@
 Recently, I worked on an interesting feature: making a browser speak the text from a text box or a `div`. While exploring, I discovered the [speechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/Window/speechSynthesis) property of the `window` object. In this blog, I’ll walk you through how to use it to create a simple text-to-speech (TTS) implementation.
 
-## Step 1: Create a `SpeechSynthesis` Object
+## Step 1: Create a SpeechSynthesis Object
 To begin, we need to create a `SpeechSynthesis` object. This is the entry point for the Web Speech API's text-to-speech functionality.
 ```js
 const speechSynth = window.speechSynthesis
@@ -12,7 +12,7 @@ Define the text you want the browser to speak. For example:
 const textToSpeak = "hello world"
 ```
 -------------
-## Step 3: Create a `SpeechSynthesisUtterance` Object
+## Step 3: Create a SpeechSynthesisUtterance Object
 Next, we need a `SpeechSynthesisUtterance` object to encapsulate the text. This object represents the speech request.
 ```js
 const utterThis = new SpeechSynthesisUtterance(textToSpeak)
