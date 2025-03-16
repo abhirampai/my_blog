@@ -230,7 +230,7 @@ export const blogs = [
   }, {
     name: "How to Use the SpeechSynthesis API for Text-to-Speech in the Browser",
     summary:
-      "This blog explains how to use the Web Speech API's SpeechSynthesis property to implement a text-to-speech feature in a browser. It covers creating speech requests, selecting voices, speaking text, and handling events for enhanced interactivity.",
+      "This blog explains how to use the Web Speech API's SpeechSynthesis property to implement a text-to-speech feature in a browser. It covers creating speech requests, selecting voices, speaking text, and handling events for enhanced interactivity...",
     publishedDate: "Dec 23, 2024",
     slug: "using_window_speech_synthesis_for_tts",
     keywords: [
@@ -240,6 +240,19 @@ export const blogs = [
       "Web Speech API",
       "SpeechSynthesisUtterance"
     ]
+  }, {
+    name: "Building a Simple Web Service API with Go and Gin",
+    summary:
+      "This blog provides a step-by-step guide on creating a simple web service API using Go and the Gin framework. It covers the setup of a project, defining CRUD operations for managing albums, and testing the API with sample commands...",
+      publishedDate: "Mar 16, 2025",
+      slug: "developing_a_simple_web_service_api_using_go",
+      keywords: [
+        "Go",
+        "Gin",
+        "Web service",
+        "API",
+        "CRUD operations"
+      ]
   }
 ];
 
