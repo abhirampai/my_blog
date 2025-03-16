@@ -2,7 +2,7 @@ In this blog, we will explore how to create a simple web service API using Go an
 
 ## Setting Up the Project
 
-### Create a New Go Project\
+### Create a New Go Project
 To begin, create a new directory for your project and navigate into it:
 
 ```sh
@@ -174,6 +174,27 @@ func Update(c *gin.Context) {
 
 This function updates the specified fields of an existing album based on the request body.
 
+### Delete Album
+To delete an album, use this handler:
+```go
+// albums/albums.go
+func Destroy(c *gin.Context) {
+	id := c.Param("id")
+
+	for index, album := range models.Albums {
+		if album.ID == id {
+			models.Albums = append(models.Albums[:index], models.Albums[index+1:]...)
+			c.IndentedJSON(http.StatusOK, gin.H{ "message": "Album deleted successfully"})
+			return
+		}
+	}
+
+	c.IndentedJSON(http.StatusNotFound, gin.H{ "message": "Album not found" })
+}
+```
+
+This function deletes an existing album based on the id provided.
+
 ### Show All Artists
 To list all unique artists from the albums array, create another file named `artists.go` in the `albums` folder:
 
@@ -252,6 +273,11 @@ curl http://localhost:8080/albums/4 \
     --header "Content-Type: application/json" \
     --request "PUT" \
     --data '{"title": "Rich Dad Poor Dad", "artist": "Robert T.Kiyosaki"}'
+
+curl http://localhost:8080/albums/4 \
+	--include \
+	--header "Content-Type: application/json" \
+	--request "DELETE"
 
 curl http://localhost:8080/artists
 ```
