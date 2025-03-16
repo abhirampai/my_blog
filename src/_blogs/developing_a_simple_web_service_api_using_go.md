@@ -1,4 +1,4 @@
-In this blog, we will explore how to create a simple web service API using Go and the [Gin](https://gin-gonic.com/docs/) framework. We will focus on defining CRUD (Create, Read, Update, Delete) operations over an array of albums. This guide is suitable for those familiar with Go and looking to build a RESTful API.
+In this blog, we will explore how to create a simple web service API using Go and the [Gin](https://gin-gonic.com/docs/) framework. We will focus on defining CRUD (Create, Read, Update, Delete) operations over an array of albums.
 
 ## Setting Up the Project
 
@@ -283,4 +283,4 @@ curl http://localhost:8080/artists
 ```
 
 ## Conclusion
-In this blog post, we explored how to create a web service API using Go and Gin. We defined CRUD operations for managing an array of albums while demonstrating how to handle requests effectively with Gin's context management. This foundational knowledge can be expanded upon for more complex applications in the future.
+In this blog post, we explored how to create a web service API using Go and Gin. We defined CRUD operations for managing an array of albums while demonstrating how to handle requests effectively with Gin's context management. Checkout the github repo [here](https://github.com/abhirampai/AlbumSearchServiceGo), for the complete implementation.
