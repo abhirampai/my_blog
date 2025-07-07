@@ -10,7 +10,6 @@ The first crucial step is to set up a dedicated GitHub App.
 ### Creating the Application
 To begin, navigate to your GitHub profile. From the dropdown menu, select <b>Settings</b>. On the left-hand sidebar, you'll find <b>Developer settings</b>. Within Developer settings, proceed to create a new GitHub App.
 
-Inside developer settings we need to create a new app.
 ![New github app settings](/assets/developer-settings.png "New github app settings")
 
 ## Configuring the Webhook
