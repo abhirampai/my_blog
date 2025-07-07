@@ -253,6 +253,21 @@ export const blogs = [
         "API",
         "CRUD operations"
       ]
+  }, {
+    name: "Building Your Own AI-Powered GitHub PR Reviewer with FastAPI and Gemini",
+    summary:
+      "This blog walks you through setting up a GitHub App, building a FastAPI server, integrating with Google Gemini for intelligent code review, and automating comments on your pull requests...",
+    publishedDate: "July 7, 2025",
+    slug: "create_github_pr_reviewer_powered_by_gemini",
+    keywords: [
+      "GitHub App",
+      "FastAPI",
+      "Gemini AI",
+      "Code Review",
+      "Pull Request Automation",
+      "smee.io",
+      "PyGithub"
+    ]
   }
 ];
 
