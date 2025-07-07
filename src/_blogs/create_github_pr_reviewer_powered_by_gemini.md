@@ -430,6 +430,7 @@ Remember to replace <webhook-url> with the URL you obtained from smee.io and <po
 
 ## Snapshot of reviews
 ![Gemini Code Review (1)](/assets/code-review-1.png "Gemini Code Review (1)")
+
 ![Gemini Code Review (2)](/assets/code-review-2.png "Gemini Code Review (2)")
 
 ## Conclusion
