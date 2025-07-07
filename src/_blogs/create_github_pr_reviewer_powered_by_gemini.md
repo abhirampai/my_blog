@@ -11,7 +11,7 @@ The first crucial step is to set up a dedicated GitHub App.
 To begin, navigate to your GitHub profile. From the dropdown menu, select <b>Settings</b>. On the left-hand sidebar, you'll find <b>Developer settings</b>. Within Developer settings, proceed to create a new GitHub App.
 
 Inside developer settings we need to create a new app.
-![New github app settings](https://github.com/user-attachments/assets/a1c49e2f-d82f-4178-9166-1d792341e138)
+![New github app settings](/assets/developer-settings.png "New github app settings")
 
 ## Configuring the Webhook
 For local development, you'll need a way to receive webhook events from GitHub. I used [smee.io](https://smee.io) to obtain a temporary webhook URL, but `ngrok` is another excellent alternative.
@@ -430,8 +430,8 @@ smee -u <webhook-url> -P /webhook -p <port-number>
 Remember to replace <webhook-url> with the URL you obtained from smee.io and <port-number> with the port your FastAPI application is running on (usually 8000).
 
 ## Snapshot of reviews
-![Gemni Code Review(1)](https://github.com/user-attachments/assets/22cebc11-dd22-4061-babf-1232bec8340d)
-![Gemni Code Review(2)](https://github.com/user-attachments/assets/64351c75-6e0d-4751-803a-2d964e4b5ae0)
+![Gemini Code Review (1)](/assets/code-review-1.png "Gemini Code Review (1)")
+![Gemini Code Review (2)](/assets/code-review-2.png "Gemini Code Review (2)")
 
 ## Conclusion
 In this blog post, we've walked through the process of creating a GitHub pull request reviewer bot. By leveraging FastAPI for the server, Gemini for AI-powered code review, and a webhook client like smee.io, you can automate a significant part of your code review workflow. The full GitHub code for this project is available [here](https://github.com/abhirampai/gemini_code_reviewer).
