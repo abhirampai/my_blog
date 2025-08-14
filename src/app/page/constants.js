@@ -268,6 +268,18 @@ export const blogs = [
       "smee.io",
       "PyGithub"
     ]
+  }, {
+    name: "Connecting custom AI API with langchain",
+    summary: "If you've ever wanted to let LangChain talk to your own 'black-box' LLM endpoint (whether it's a private deployment, a SaaS that exposes many models under one roof, or a custom wrapper you built), the good news is you can do it with one small wrapper class...",
+    publishedDate: "August 14, 2025",
+    slug: "using_custom_models_with_langchain",
+    keywords: [
+      "Custom AI Model",
+      "Langchain",
+      "Agents",
+      "Chat completions",
+      "Function callling"
+    ]
   }
 ];
 
