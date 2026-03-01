@@ -280,6 +280,18 @@ export const blogs = [
       "Chat completions",
       "Function callling"
     ]
+  }, {
+    name: "Running PicoClaw with Ollama in Docker",
+    summary: "This blog walks through setting up PicoClaw with Ollama using Docker. It covers running Ollama locally (with optional NVIDIA GPU support), configuring PicoClaw to use Ollama as its LLM backend, and connecting PicoClaw to a Telegram bot. The guide also explains Docker networking to enable communication between containers, resulting in a lightweight, self-hosted AI assistant accessible via Telegram.",
+    publishedDate: "March 01, 2026",
+    slug: "running_picoclaw_with_ollama_in_docker",
+    keywords: [
+      "PicoClaw",
+      "Ollama",
+      "Docker",
+      "Telegram AI Bot",
+      "Shared Docker Network"
+    ]
   }
 ];
 
