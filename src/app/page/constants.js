@@ -114,7 +114,7 @@ export const blogs = [
   {
     name: "BitTorrent from Scratch part-2",
     summary:
-    "This blog post is the third part of the series on implementing BitTorrent from scratch.It discusses about establishing tcp connection with a peer and exchanging handshake messages and finally validating the handshake message using the info hash...",
+      "This blog post is the third part of the series on implementing BitTorrent from scratch.It discusses about establishing tcp connection with a peer and exchanging handshake messages and finally validating the handshake message using the info hash...",
     publishedDate: "Nov 07, 2024",
     slug: "lets_implement_bittorrent_from_scratch_part_2",
     keywords: [
@@ -128,7 +128,7 @@ export const blogs = [
   {
     name: "BitTorrent from Scratch part-3",
     summary:
-    "In the fourth installment of our BitTorrent series, we explore the process of downloading a file piece after completing a handshake with a peer. Key steps include waiting for a bitfield message, sending an interested message, awaiting an unchoke response, sending request message, and awaiting piece message...",
+      "In the fourth installment of our BitTorrent series, we explore the process of downloading a file piece after completing a handshake with a peer. Key steps include waiting for a bitfield message, sending an interested message, awaiting an unchoke response, sending request message, and awaiting piece message...",
     publishedDate: "Nov 11, 2024",
     slug: "lets_implement_bittorrent_from_scratch_part_3",
     keywords: [
@@ -201,7 +201,7 @@ export const blogs = [
     ]
   }, {
     name: "Apache Kafka from Scratch part-3",
-    summary: 
+    summary:
       "In this blog post, we dive into the workings of the Fetch API in Apache Kafka. We start by updating our existing ApiVersions request handler to include the Fetch API, which has an ApiKey of 1 and supports versions ranging from 0 to 17. We then outline the structure of a Fetch API request and response, demonstrating how to parse and handle these messages using JavaScript...",
     publishedDate: "Dec 3, 2024",
     slug: "apache_kafka_from_scratch_part_3",
@@ -244,15 +244,15 @@ export const blogs = [
     name: "Building a Simple Web Service API with Go and Gin",
     summary:
       "This blog provides a step-by-step guide on creating a simple web service API using Go and the Gin framework. It covers the setup of a project, defining CRUD operations for managing albums, and testing the API with sample commands...",
-      publishedDate: "Mar 16, 2025",
-      slug: "developing_a_simple_web_service_api_using_go",
-      keywords: [
-        "Go",
-        "Gin",
-        "Web service",
-        "API",
-        "CRUD operations"
-      ]
+    publishedDate: "Mar 16, 2025",
+    slug: "developing_a_simple_web_service_api_using_go",
+    keywords: [
+      "Go",
+      "Gin",
+      "Web service",
+      "API",
+      "CRUD operations"
+    ]
   }, {
     name: "Building Your Own AI-Powered GitHub PR Reviewer with FastAPI and Gemini",
     summary:
@@ -282,7 +282,7 @@ export const blogs = [
     ]
   }, {
     name: "Running PicoClaw with Ollama in Docker",
-    summary: "This blog walks through setting up PicoClaw with Ollama using Docker. It covers running Ollama locally (with optional NVIDIA GPU support), configuring PicoClaw to use Ollama as its LLM backend, and connecting PicoClaw to a Telegram bot. The guide also explains Docker networking to enable communication between containers, resulting in a lightweight, self-hosted AI assistant accessible via Telegram.",
+    summary: "This blog walks through setting up PicoClaw with Ollama using Docker. It covers running Ollama locally (with optional NVIDIA GPU support), configuring PicoClaw to use Ollama as its LLM backend, and connecting PicoClaw to a Telegram bot. The guide also explains Docker networking to enable communication between containers, resulting in a lightweight, self-hosted AI assistant accessible via Telegram...",
     publishedDate: "March 01, 2026",
     slug: "running_picoclaw_with_ollama_in_docker",
     keywords: [
@@ -291,6 +291,18 @@ export const blogs = [
       "Docker",
       "Telegram AI Bot",
       "Shared Docker Network"
+    ]
+  }, {
+    name: "Building a Multimodal RAG Pipeline for IKEA Assembly Instructions using Gemma 4 and ChromaDB",
+    summary: "This article explores building a multimodal RAG pipeline for IKEA assembly manuals using Gemma 4, Ollama, and ChromaDB. PDF instructions are converted into images, described by a vision model, embedded for semantic search, and retrieved during question answering. The result is an AI assistant capable of understanding visual assembly guides...",
+    publishedDate: "June 22, 2026",
+    slug: "building_a_multimodal_rag_pipeline_for_ikea_assembly_instructions",
+    keywords: [
+      "Multimodal RAG",
+      "Gemma 4",
+      "ChromaDB",
+      "Ollama",
+      "Vector search"
     ]
   }
 ];
