@@ -21,14 +21,14 @@ const Header = () => {
           Abhiram R Pai
         </h4>
         <p className="leading-7 font-extralight">
-          Software Engineer @{" "}
+          Software AI Engineer @{" "}
           <Link
             className="underline"
-            href="https://www.bigbinary.com"
+            href="https://galent.com/"
             target="_blank"
             rel="no_referrer"
           >
-            BigBinary
+            Galent
           </Link>
         </p>
         <span className="text-sm text-gray-500 dark:text-gray-400">
